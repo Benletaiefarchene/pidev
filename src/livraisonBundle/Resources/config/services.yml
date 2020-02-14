@@ -1,0 +1,4 @@
+services:
+#    livraison.example:
+#        class: livraisonBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

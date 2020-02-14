@@ -1,0 +1,38 @@
+{% extends "Page.html.twig" %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">liste magasin</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+{% block container  %}
+    <table border="1">
+        {% for a  in list %}
+
+            <tr>
+                <td>
+                    {{ a.nameM }}
+                </td>
+                <td>
+                    {{ a.adresse }}
+                </td>
+                <td>
+                    {{ a.tel }}
+                </td>
+                <td>
+                    {{a.idregion.nom}}
+                </td>
+
+
+                <td><a href="{{ path("Magasin_update",{"id":a.id})}}">update</a></td>
+                <td><a href="{{ path("Magasin_delete",{"id":a.id})}}"> supprimer </a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

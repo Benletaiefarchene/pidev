@@ -1,0 +1,14 @@
+location:
+    resource: "@LocationBundle/Resources/config/routing.yml"
+    prefix:   /Loc
+
+livraison:
+    resource: "@livraisonBundle/Resources/config/routing.yml"
+    prefix:   /liv
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
