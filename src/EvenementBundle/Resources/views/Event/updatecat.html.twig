@@ -1,0 +1,11 @@
+{% extends "Page.html.twig" %}
+{% block container  %}
+
+    <form method= "POST">
+        Id Evenement:<input type="text" name ="id_categorie" value="{{ cat.idcategorie }}"><br/>
+        Libelle :<input type="text" name = "libelle" value="{{ cat.libelle }}"><br/>
+
+        <input type="submit"value="enregister">
+
+    </form>
+{% endblock %}

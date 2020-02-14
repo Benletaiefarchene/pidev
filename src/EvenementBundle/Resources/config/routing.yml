@@ -1,0 +1,49 @@
+evenement_homepage:
+    path:     /
+    defaults: { _controller: EvenementBundle:Default:index }
+
+home:
+    path:     /home
+    defaults: { _controller: EvenementBundle:Default:index }
+
+Participer:
+    path:     /participer
+    defaults: { _controller: EvenementBundle:EvenementParticipant:listparticp }
+Participercat:
+    path:     /participercat
+    defaults: { _controller: EvenementBundle:EvenementParticipant:listcatfron }
+
+eventadmin:
+    path:     /eventadmin
+    defaults: { _controller: EvenementBundle:EvenementAdmin:afficheeventAadmin}
+
+eventadminD:
+    path:     /eventadminD
+    defaults: { _controller: EvenementBundle:EvenementAdmin:afficheeventDadmin}
+Recherche:
+    path:     /Recherche
+    defaults: { _controller: EvenementBundle:EvenementAdmin:rechercheevent}
+Ajout:
+    path:     /add
+    defaults: { _controller: EvenementBundle:EvenementAdmin:add}
+eventsupp:
+    path:     /eventsupp/{idEvenement}
+    defaults: { _controller: EvenementBundle:EvenementAdmin:supprimer}
+eventlist:
+    path:     /list
+    defaults: { _controller: EvenementBundle:EvenementAdmin:list}
+evenmodifier:
+    path:     /evenmodifier/{idEvenement}
+    defaults: { _controller: EvenementBundle:EvenementAdmin:modifier}
+catlist:
+    path:     /catlist
+    defaults: { _controller: EvenementBundle:Categorie:list}
+addcat:
+    path:     /addcat
+    defaults: { _controller: EvenementBundle:Categorie:addcat}
+catmodifier:
+    path:     /catmodifier/{id_categorie}
+    defaults: { _controller: EvenementBundle:Categorie:modifcat}
+catsupp:
+    path:     /catsupp/{id_categorie}
+    defaults: { _controller: EvenementBundle:Categorie:supprimcat}

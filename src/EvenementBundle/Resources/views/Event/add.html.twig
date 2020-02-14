@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block container %}
+
+        <center><h2 class="contact-title">
+                <br><br>
+                Create your Post !
+            </h2></center>
+        <div class="form-group has-error">
+            {{ form_start(Form) }}
+            {{ form_widget(Form.idEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'idEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.nomEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'nomEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.typeEvenement,{'attr':{'type':'textarea','class':'form-control','placeholder':'typeEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.lieuEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'lieuEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.description,{'attr':{'type':'text','class':'form-control','placeholder':'description...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.nbParticipant,{'attr':{'type':'text','class':'form-control','placeholder':'nbrParticipant...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.dateEvenement,{'attr':{'type':'date','class':'form-control','placeholder':'dateEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.typeEvenement,{'attr':{'type':'textarea','class':'form-control','placeholder':'typeEvenement...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.etat,{'attr':{'type':'textarea','class':'form-control','placeholder':'etat...'}}) }}
+            <br> <br> <br>
+            {{ form_widget(Form.nbInteresser,{'attr':{'type':'textarea','class':'form-control','placeholder':'nbInteresser...'}}) }}
+            <center> {{ form_widget(Form.Submit,{'attr':{'type':'text','class':'btn btn-common','placeholder':'Submit...'}}) }}        </center>
+            <br> <br> <br>
+            {{ form_end(Form) }}
+        </div>
+
+
+
+
+
+{% endblock %}

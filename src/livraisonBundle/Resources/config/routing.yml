@@ -1,0 +1,9 @@
+livraison_homepage:
+    path:     /
+    defaults: { _controller: livraisonBundle:Default:index }
+RechercherLivraison:
+    path: /RechercherLivraison
+    defaults: {_controller: livraisonBundle:Default:search}
+list:
+    path: /list
+    defaults: {_controller: livraisonBundle:Default:index}

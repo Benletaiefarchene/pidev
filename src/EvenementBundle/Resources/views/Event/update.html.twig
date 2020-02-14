@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+
+    <form method= "POST">
+        Id Evenement:<input type="text" name ="idEvenement" value="{{ even.idEvenement }}"><br/>
+        Nom Evenement:<input type="text" name = "nomEvenement" value="{{ even.nomEvenement }}"><br/>
+        TypeEvenement:<input type="text" name ="typeEvenement" value="{{ even.typeEvenement }}"><br/>
+        LieuEvenement:<input type="text" name="lieuEvenement" value="{{ even.lieuEvenement }}"><br/>
+        Description:<input type="text" name="description" value="{{ even.description }}"><br/>
+        Nbr_Participant:<input type="text" name="nbParticipant" value="{{ even.nbParticipant }}"><br/>
+        Date_Evenement<input type="date" name = "date" value="{{ even.dateEvenement|date('Y-m-d')}}"><br/>
+        Type_Evenement:<input type="text" name="typeEvenement" value="{{ even.typeEvenement }}"><br/>
+        Etat:<input type="text" name="etat" value="{{ even.etat }}"><br/>
+        Nb_Interesser<input type="text" name="nbInteresser" value="{{ even.nbInteresser }}"><br/>
+
+        <input type="submit"value="enregister">
+
+    </form>
+{% endblock %}

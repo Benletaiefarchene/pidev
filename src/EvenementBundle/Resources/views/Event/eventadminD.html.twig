@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Rédactions proposées
+{% endblock %}
+
+{% block core %}
+    <div class="content-wrapper">
+    <section class="content-header">
+        <h1>
+            Rédactions proposées
+        </h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path("Accueil_EcoSystem") }}"><i class="fa fa-dashboard"></i>Accueil</a></li>
+            <li class="breadcrumb-item active">Rédactions proposées</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+
+
+
+
+
+        <div>
+            <table border="1" class="table table-hover" >
+                <tr>
+                    <td>Nom</td>
+                    <td>Lieu</td>
+                    <td>Type</td>
+                    <td>NB_participant</td>
+                    <td>NB_intersser</td>
+                    <td>date_evenement</td>
+
+                    <td>Description</td>
+                    <td>Etat</td>
+
+
+                </tr>
+                <tr> {% for i in d %}
+                    <td> {{ i.nomEvenement }}</td>
+                    <td>{{ i.lieuEvenement}}</td>
+                    <td> {{i.typeEvenement}}</td>
+
+                    <td>{{ i.nbParticipant}}</td>
+                    <td>{{ i.nbInteresser}}</td>
+                    <td>{{ i.dateEvenement|date}}</td>
+                    <td>{{ i.description}}</td>
+                    <td>{{ i.etat}}</td>
+
+                    <td >
+                        <a href={{ path('eventactiv',{'Id':i.idEvenement }) }}>Activer </a>
+                    </td>
+
+
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+{% endblock %}
