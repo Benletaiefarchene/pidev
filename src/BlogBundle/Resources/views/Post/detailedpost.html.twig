@@ -1,0 +1,104 @@
+{% extends 'Page.html.twig' %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">Add Post</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+{% block container %}
+
+
+        <!-- Title -->
+        <h1 class="mt-4">Titre :{{ title|upper }}</h1>
+
+        <!-- Author -->
+
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>{{ date|date }}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="{{ asset('uploads/post/' ~ photo) }}" alt="{{ title }}">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p class="lead">Desceiption : {{ descripion }}</p>
+
+
+
+        <hr>
+
+
+
+            <h5 class="card-header">Leave a Comment:</h5>
+
+                <form action="{{ path('add_comment') }}" method="post" id="comment">
+
+                        <input type="hidden" name="post_id" value= "{{ id }}">
+                        <textarea class="form-control" rows="3" name="comment" placeholder="Comment here"></textarea>
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+
+        <!-- Single Comment -->
+        {% for comment in posts.comments %}
+
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+
+                <h5 class="mt-0">{{ comment.getUser().getUsername() }}</h5>
+                <p>{{ comment.getContent() }}</p>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% if(comment.user.id== app.user.id) %}
+
+
+                        <!-- Button trigger modal -->
+                        <a href="{{ path('delete_comment',{'id': comment.id}) }}"><button type="button" class="btn btn-primary">Delete Comment</button></a>
+
+
+
+                    {% else %}
+
+
+                    {% endif %}
+                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                    <br>
+
+                {% endif %}
+
+            </div>
+            {% endfor %}
+            <!-- Comment with nested comments -->
+
+
+        </div>
+        <br><br><br><br><br>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+            <!-- Search Widget -->
+
+
+
+
+
+
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

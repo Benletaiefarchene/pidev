@@ -1,0 +1,58 @@
+{%  extends 'Page.html.twig' %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">Lists of Posts !</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+{% block container %}
+
+
+
+
+                {% for posts in posts %}
+
+
+                                            <figure>
+
+
+                                                <a href="{{ path('detailed_post',{'id': posts.id}) }}"><img class="img-fluid" src="{{ asset('uploads/post/' ~ posts.photo) }}" alt=""></a>
+                                            </figure>
+
+                                               <center>
+                                                   Titre: <h4><a href="{{ path('detailed_post',{'id': posts.id}) }}">{{ posts.title }}</a></h4></br>
+                                                   Description : <p class="listing-tagline">{{ posts.description|trim }}</p></br>
+
+                                                          User :  <a href="#"><i class="lni-user"></i>{{ posts.creator }}</a></br>
+
+                                                            <a href="#"><i class="lni-alarm-clock"></i>{{ posts.postdate|date() }} </a></br>
+
+
+                                                        <a href="{{ path('update_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Update</button></a>
+                                                        <a href="{{ path('delete_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+                                                        <a href="{{ path('detailed_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-primary">View</button></a>
+                                                        </br></br></br></br>
+                                                    </br>
+                                              </center>
+
+                                {% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+{% endblock %}

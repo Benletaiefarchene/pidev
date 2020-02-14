@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    {% block title %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>Titan </title>
+    <!--
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('front/images/favicons/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('front/images/favicons/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('front/images/favicons/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/images/favicons/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('front/images/favicons/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('front/images/favicons/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('front/images/favicons/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('front/images/favicons/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('front/images/favicons/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('front/images/favicons/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('front/images/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('front/images/favicons/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('front/images/favicons/favicon-16x16.png')}}">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('front/images/favicons/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    Stylesheets
+    =============================================
+
+    -->
+    <!-- Default stylesheets-->
+    <link href="{{ asset('front/lib/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="{{ asset('front/lib/animate.css/animate.css" rel="stylesheet')}}">
+    <link href="{{ asset('front/lib/components-font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/et-line-font/et-line-font.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/flexslider/flexslider.css" rel="stylesheet')}}">
+    <link href="{{ asset('front/lib/owl.carousel/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/owl.carousel/dist/assets/owl.theme.default.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/magnific-popup/dist/magnific-popup.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/simple-text-rotator/simpletextrotator.css')}}" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="{{ asset('front/css/style.css')}}" rel="stylesheet">
+    <link id="color-scheme" href="{{ asset('front/css/colors/default.css')}}" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+<main>
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+        <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="{{ asset('front/images/shop/Image2.png') }}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="custom-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a href="#" >Home</a>
+
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Categorie</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Velo</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index_mp_fullscreen_static.html">Fulscreen</a></li>
+                                    <li><a href="index_mp_classic_static.html">Classic</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Accessoire</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index_mp_fullscreen_static.html">Fulscreen</a></li>
+                                    <li><a href="index_mp_classic_static.html">Classic</a></li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Evenement</a>
+                        <ul class="dropdown-menu">
+
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="service1.html">Service 1</a></li>
+                                    <li><a href="service2.html">Service 2</a></li>
+                                    <li><a href="service3.html">Service 3</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Gallery</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="gallery_col_2.html">2 Columns</a></li>
+                                    <li><a href="gallery_col_3.html">3 Columns</a></li>
+                                    <li><a href="gallery_col_4.html">4 Columns</a></li>
+                                    <li><a href="gallery_col_6.html">6 Columns</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Blog</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown"><a class="dropdown-toggle" href="{{ path('addPost') }}" data-toggle="dropdown">Add Blog</a>
+
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" href="{{path('list_post')}}" data-toggle="dropdown">List Blog</a>
+
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Reclamation</a>
+
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">About US</a>
+                       
+                    </li>
+                    
+                    <!--li.dropdown.navbar-cart-->
+                    <!--    a.dropdown-toggle(href='#', data-toggle='dropdown')-->
+                    <!--        span.icon-basket-->
+                    <!--        |-->
+                    <!--        span.cart-item-number 2-->
+                    <!--    ul.dropdown-menu.cart-list(role='menu')-->
+                    <!--        li-->
+                    <!--            .navbar-cart-item.clearfix-->
+                    <!--                .navbar-cart-img-->
+                    <!--                    a(href='#')-->
+                    <!--                        img(src='assets/images/shop/product-9.jpg', alt='')-->
+                    <!--                .navbar-cart-title-->
+                    <!--                    a(href='#') Short striped sweater-->
+                    <!--                    |-->
+                    <!--                    span.cart-amount 2 &times; $119.00-->
+                    <!--                    br-->
+                    <!--                    |-->
+                    <!--                    strong.cart-amount $238.00-->
+                    <!--        li-->
+                    <!--            .navbar-cart-item.clearfix-->
+                    <!--                .navbar-cart-img-->
+                    <!--                    a(href='#')-->
+                    <!--                        img(src='assets/images/shop/product-10.jpg', alt='')-->
+                    <!--                .navbar-cart-title-->
+                    <!--                    a(href='#') Colored jewel rings-->
+                    <!--                    |-->
+                    <!--                    span.cart-amount 2 &times; $119.00-->
+                    <!--                    br-->
+                    <!--                    |-->
+                    <!--                    strong.cart-amount $238.00-->
+                    <!--        li-->
+                    <!--            .clearfix-->
+                    <!--                .cart-sub-totle-->
+                    <!--                    strong Total: $476.00-->
+                    <!--        li-->
+                    <!--            .clearfix-->
+                    <!--                a.btn.btn-block.btn-round.btn-font-w(type='submit') Checkout-->
+                    <!--li.dropdown-->
+                    <!--    a.dropdown-toggle(href='#', data-toggle='dropdown') Search-->
+                    <!--    ul.dropdown-menu(role='menu')-->
+                    <!--        li-->
+                    <!--            .dropdown-search-->
+                    <!--                form(role='form')-->
+                    <!--                    input.form-control(type='text', placeholder='Search...')-->
+                    <!--                    |-->
+                    <!--                    button.search-btn(type='submit')-->
+                    <!--                        i.fa.fa-search-->
+                    <li class="dropdown"><a class="dropdown-toggle" href="{{ path('fos_user_security_login') }}" >{{ 'Sign in '|trans({}, 'FOSUserBundle') }}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_security_login') }}">{{ 'Sign in'|trans({}, 'FOSUserBundle') }}</a></li>
+                            <li><a href="{{ path('fos_user_registration_register')}}">{{ 'Sign up'|trans({}, 'FOSUserBundle') }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" ><img src="{{ asset('front/images/shop/ic2.png') }}"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="home-section home-fade home-full-height" id="home">
+        <div class="hero-slider">
+            <ul class="slides">
+                <li class="bg-dark-30 bg-dark shop-page-header" style="background-image: url({{ asset('front/images/shop/b2.jpg') }})">
+                    <div class="titan-caption">
+                        <div class="caption-content">
+                            <div class="font-alt mb-30 titan-title-size-1">This is The Titans</div>
+                            <div class="font-alt mb-30 titan-title-size-4"> Summer 2020</div>
+                            <div class="font-alt mb-40 titan-title-size-1">Ride With Pride</div><a class="section-scroll btn btn-border-w btn-round" href="#latest">Learn More</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="bg-dark-30 bg-dark shop-page-header" style="background-image: url({{ asset('front/images/shop/b1.jpg') }})">
+                    <div class="titan-caption">
+                        <div class="caption-content">
+                            <div class="font-alt mb-30 titan-title-size-1"> This is Titan</div>
+                            <div class="font-alt mb-40 titan-title-size-4">Exclusive products</div><a class="section-scroll btn btn-border-w btn-round" href="#latest">Learn More</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    {% block container %}{% endblock %}
+    <div class="main">
+        <section class="module-small">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h2 class="module-title font-alt">Latest in clothing</h2>
+                    </div>
+                </div>
+                <div class="row multi-columns-row">
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik1.jpg')}}" alt="Accessories Pack"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Accessories Pack</a></h4>119.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik2.jpg')}}" alt="Men’s Casual Pack"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Men’s Casual Pack</a></h4>149.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik3.jpg')}}" alt="Men’s Garb"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Men’s Garb</a></h4>109.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik4.jpg')}}" alt="Cold Garb"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Cold Garb</a></h4>109.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik5.jpg')}}" alt="Accessories Pack"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Accessories Pack</a></h4>99.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/bik6.jpg')}}" alt="Men’s Casual Pack"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Men’s Casual Pack</a></h4>169.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/r1.jpg')}}" alt="Men’s Garb"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Men’s Garb</a></h4>149.99 DT
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="shop-item">
+                            <div class="shop-item-image"><img src="{{ asset('front/images/shop/s1.jpg')}}" alt="Cold Garb"/>
+                                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                            </div>
+                            <h4 class="shop-item-title font-alt"><a href="#">Cold Garb</a></h4>149.99 DT
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-30">
+                    <div class="col-sm-12 align-center"><a class="btn btn-b btn-round" href="#">See all products</a></div>
+                </div>
+            </div>
+        </section>
+        <section class="module module-video bg-dark-30" data-background="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h2 class="module-title font-alt mb-0">Be inspired. Get ahead of trends.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="video-player" data-property="{videoURL:'https://www.youtube.com/watch?v=EMy5krGcoOU', containment:'.module-video', startAt:0, mute:true, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:25}"></div>
+        </section>
+        <section class="module">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h2 class="module-title font-alt">Exclusive products</h2>
+                        <div class="module-subtitle font-serif">The languages only differ in their grammar, their pronunciation and their most common words.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="owl-carousel text-center" data-items="5" data-pagination="false" data-navigation="false">
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/a3.jpg')}}" alt="Leather belt"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Leather belt</a></h4>79.99 DT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/p3.jpg')}}" alt="Derby shoes"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Derby shoes</a></h4>39.99 DT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/a12.jpg')}}" alt="Leather belt"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Leather belt</a></h4>89.99 DT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/p12.jpg')}}" alt="Leather belt"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Leather belt</a></h4>59.99 DT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/p15.jpg')}}" alt="Chelsea boots"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Chelsea boots</a></h4>39.99 DT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="ex-product"><a href="#"><img src="{{ asset('front/images/shop/a4.jpg')}}" alt="Leather belt"/></a>
+                                    <h4 class="shop-item-title font-alt"><a href="#">Leather belt</a></h4>99.99 DT
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider-w">
+        <section class="module" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h2 class="module-title font-alt">Our News</h2>
+                    </div>
+                </div>
+                <div class="row multi-columns-row post-columns wo-border">
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">Receipt of the new collection</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">Sale of summer season</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">New lookbook</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">Receipt of the new collection</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">Sale of summer season</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="post mb-40">
+                            <div class="post-header font-alt">
+                                <h2 class="post-title"><a href="#">New lookbook</a></h2>
+                            </div>
+                            <div class="post-entry">
+                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                            </div>
+                            <div class="post-more"><a class="more-link" href="#">Read more</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider-w">
+        <section class="module-small">
+            <div class="container">
+                <div class="row client">
+                    <div class="owl-carousel text-center" data-items="6" data-pagination="false" data-navigation="false">
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo1.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo2.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo3.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo4.png')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo5.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo6.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo7.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo8.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="col-sm-12">
+                                <div class="client-logo"><img src="{{ asset('front/images/shop/lo9.jpg')}}" alt="Client Logo"/></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="module-small bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">About BASKEL.TN</h5>
+                            <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                            <p>Phone: +216 90 100 895</p>Phone: +216 54 705 302
+                            <p>Email:<a href="#">baskel@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Recent Comments</h5>
+                            <ul class="icon-list">
+                                <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                                <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                                <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                                <li>Jack on <a href="#">Bottle Mockup</a></li>
+                                <li>Mark on <a href="#">Our trip to the Alps</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Blog Categories</h5>
+                            <ul class="icon-list">
+                                <li><a href="#">Photography - 7</a></li>
+                                <li><a href="#">Web Design - 3</a></li>
+                                <li><a href="#">Illustration - 12</a></li>
+                                <li><a href="#">Marketing - 1</a></li>
+                                <li><a href="#">Wordpress - 16</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Popular Posts</h5>
+                            <ul class="widget-posts">
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="{{ asset('front/images/rp-1.jpg')}}" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                                        <div class="widget-posts-meta">23 january</div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="{{ asset('front/images/rp-2.jpg')}}" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                                        <div class="widget-posts-meta">15 February</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+</main>
+<!--
+JavaScripts
+=============================================
+-->
+<script src="{{ asset('front/lib/jquery/dist/jquery.js')}}"></script>
+<script src="{{ asset('front/lib/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('front/lib/wow/dist/wow.js')}}"></script>
+<script src="{{ asset('front/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js')}}"></script>
+<script src="{{ asset('front/lib/isotope/dist/isotope.pkgd.js')}}"></script>
+<script src="{{ asset('front/lib/imagesloaded/imagesloaded.pkgd.js')}}"></script>
+<script src="{{ asset('front/lib/flexslider/jquery.flexslider.js')}}"></script>
+<script src="{{ asset('front/lib/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('front/lib/smoothscroll.js')}}"></script>
+<script src="{{ asset('front/lib/magnific-popup/dist/jquery.magnific-popup.js')}}"></script>
+<script src="{{ asset('front/lib/simple-text-rotator/jquery.simple-text-rotator.min.js')}}"></script>
+<script src="{{ asset('front/js/plugins.js')}}"></script>
+<script src="{{ asset('front/js/main.js')}}"></script>
+</body>
+</html>

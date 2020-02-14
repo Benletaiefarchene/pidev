@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    {% block title %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>Titan | Multipurpose HTML5 Template</title>
+    <!--
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('front/images/favicons/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('front/assets/images/favicons/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('front/images/favicons/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('front/images/favicons/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('front/images/favicons/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('front/images/favicons/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('front/images/favicons/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('front/images/favicons/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('front/images/favicons/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('front/images/favicons/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('front/images/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('front/images/favicons/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('front/images/favicons/favicon-16x16.png')}}">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('front/images/favicons/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    Stylesheets
+    =============================================
+
+    -->
+    <!-- Default stylesheets-->
+    <link href="{{ asset('front/lib/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="{{ asset('front/lib/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="{{ asset('front/lib/animate.css/animate.css" rel="stylesheet')}}">
+    <link href="{{ asset('front/lib/components-font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/et-line-font/et-line-font.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/flexslider/flexslider.css" rel="stylesheet')}}">
+    <link href="{{ asset('front/lib/owl.carousel/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/owl.carousel/dist/assets/owl.theme.default.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/magnific-popup/dist/magnific-popup.css')}}" rel="stylesheet">
+    <link href="{{ asset('front/lib/simple-text-rotator/simpletextrotator.css')}}" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="{{ asset('front/css/style.css')}}" rel="stylesheet">
+    <link id="color-scheme" href="{{ asset('front/css/colors/default.css')}}" rel="stylesheet">
+</head>
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+<main>
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img src="{{ asset('front/images/shop/Image2.png') }}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="custom-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" href="{{ path('home_page') }}" data-toggle="dropdown">Home</a>
+
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Categorie</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Velo</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index_mp_fullscreen_static.html">Fulscreen</a></li>
+                                    <li><a href="index_mp_classic_static.html">Classic</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Accessoire</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index_mp_fullscreen_static.html">Fulscreen</a></li>
+                                    <li><a href="index_mp_classic_static.html">Classic</a></li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Evenement</a>
+                        <ul class="dropdown-menu">
+
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="service1.html">Service 1</a></li>
+                                    <li><a href="service2.html">Service 2</a></li>
+                                    <li><a href="service3.html">Service 3</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Gallery</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="gallery_col_2.html">2 Columns</a></li>
+                                    <li><a href="gallery_col_3.html">3 Columns</a></li>
+                                    <li><a href="gallery_col_4.html">4 Columns</a></li>
+                                    <li><a href="gallery_col_6.html">6 Columns</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Blog</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown"><a class="dropdown-toggle" href="{{ path('addPost') }}" data-toggle="dropdown">Add Blog</a>
+
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" href="{{path('list_post')}}" data-toggle="dropdown">List Blog</a>
+
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Reclamation</a>
+
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">About US</a>
+
+                    </li>
+
+                    <!--li.dropdown.navbar-cart-->
+                    <!--    a.dropdown-toggle(href='#', data-toggle='dropdown')-->
+                    <!--        span.icon-basket-->
+                    <!--        |-->
+                    <!--        span.cart-item-number 2-->
+                    <!--    ul.dropdown-menu.cart-list(role='menu')-->
+                    <!--        li-->
+                    <!--            .navbar-cart-item.clearfix-->
+                    <!--                .navbar-cart-img-->
+                    <!--                    a(href='#')-->
+                    <!--                        img(src='assets/images/shop/product-9.jpg', alt='')-->
+                    <!--                .navbar-cart-title-->
+                    <!--                    a(href='#') Short striped sweater-->
+                    <!--                    |-->
+                    <!--                    span.cart-amount 2 &times; $119.00-->
+                    <!--                    br-->
+                    <!--                    |-->
+                    <!--                    strong.cart-amount $238.00-->
+                    <!--        li-->
+                    <!--            .navbar-cart-item.clearfix-->
+                    <!--                .navbar-cart-img-->
+                    <!--                    a(href='#')-->
+                    <!--                        img(src='assets/images/shop/product-10.jpg', alt='')-->
+                    <!--                .navbar-cart-title-->
+                    <!--                    a(href='#') Colored jewel rings-->
+                    <!--                    |-->
+                    <!--                    span.cart-amount 2 &times; $119.00-->
+                    <!--                    br-->
+                    <!--                    |-->
+                    <!--                    strong.cart-amount $238.00-->
+                    <!--        li-->
+                    <!--            .clearfix-->
+                    <!--                .cart-sub-totle-->
+                    <!--                    strong Total: $476.00-->
+                    <!--        li-->
+                    <!--            .clearfix-->
+                    <!--                a.btn.btn-block.btn-round.btn-font-w(type='submit') Checkout-->
+                    <!--li.dropdown-->
+                    <!--    a.dropdown-toggle(href='#', data-toggle='dropdown') Search-->
+                    <!--    ul.dropdown-menu(role='menu')-->
+                    <!--        li-->
+                    <!--            .dropdown-search-->
+                    <!--                form(role='form')-->
+                    <!--                    input.form-control(type='text', placeholder='Search...')-->
+                    <!--                    |-->
+                    <!--                    button.search-btn(type='submit')-->
+                    <!--                        i.fa.fa-search-->
+                    <li class="dropdown"><a class="dropdown-toggle" href="{{ path('fos_user_security_login') }}" >{{ 'Sign in '|trans({}, 'FOSUserBundle') }}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_security_login') }}">{{ 'Sign in'|trans({}, 'FOSUserBundle') }}</a></li>
+                            <li><a href="{{ path('fos_user_registration_register')}}">{{ 'Sign up'|trans({}, 'FOSUserBundle') }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" ><img src="{{ asset('front/images/shop/ic2.png') }}"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main">
+
+
+        {% block container %} {% endblock %}
+
+
+        <div class="module-small bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">About Titan</h5>
+                            <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                            <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
+                            <p>Email:<a href="#">somecompany@example.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Recent Comments</h5>
+                            <ul class="icon-list">
+                                <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                                <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                                <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                                <li>Jack on <a href="#">Bottle Mockup</a></li>
+                                <li>Mark on <a href="#">Our trip to the Alps</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Blog Categories</h5>
+                            <ul class="icon-list">
+                                <li><a href="#">Photography - 7</a></li>
+                                <li><a href="#">Web Design - 3</a></li>
+                                <li><a href="#">Illustration - 12</a></li>
+                                <li><a href="#">Marketing - 1</a></li>
+                                <li><a href="#">Wordpress - 16</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Popular Posts</h5>
+                            <ul class="widget-posts">
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="{{ asset('front/images/rp-1.jpg')}}" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                                        <div class="widget-posts-meta">23 january</div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="{{ asset('front/images/rp-2.jpg')}}" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                                        <div class="widget-posts-meta">15 February</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+</main>
+<!--
+JavaScripts
+=============================================
+-->
+<script src="{{ asset('front/lib/jquery/dist/jquery.js')}}"></script>
+<script src="{{ asset('front/lib/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('front/lib/wow/dist/wow.js')}}"></script>
+<script src="{{ asset('front/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js')}}"></script>
+<script src="{{ asset('front/lib/isotope/dist/isotope.pkgd.js')}}"></script>
+<script src="{{ asset('front/lib/imagesloaded/imagesloaded.pkgd.js')}}"></script>
+<script src="{{ asset('front/lib/flexslider/jquery.flexslider.js')}}"></script>
+<script src="{{ asset('front/lib/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+<script src="{{ asset('front/lib/smoothscroll.js')}}"></script>
+<script src="{{ asset('front/lib/magnific-popup/dist/jquery.magnific-popup.js')}}"></script>
+<script src="{{ asset('front/lib/simple-text-rotator/jquery.simple-text-rotator.min.js')}}"></script>
+<script src="{{ asset('front/js/plugins.js')}}"></script>
+<script src="{{ asset('front/js/main.js')}}"></script>
+</body>
+</html>

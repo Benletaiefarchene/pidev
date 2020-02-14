@@ -1,0 +1,14 @@
+{% extends 'front.html.twig' %}
+
+
+{% block container  %}
+
+
+    <form method= "POST">
+        title:<input type="text" name ="title" value="{{ transp.title }}"><br/>
+        matie:<input type="text" name = "description" value="{{ transp.description }}"><br/>
+        nomch:<input type="text" name ="photo" value="{{ transp.photo }}"><br/>
+        <input type="submit"value="enregister">
+
+    </form>
+{% endblock %}

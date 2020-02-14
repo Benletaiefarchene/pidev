@@ -1,0 +1,4 @@
+services:
+#    pai.example:
+#        class: PaiBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
