@@ -14,7 +14,7 @@ class Location
 {
     /**
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(name="id_client",referencedColumnName="id")
      *
      */
@@ -61,7 +61,7 @@ class Location
     }
     /**
      *
-     * @ORM\OneToOne(targetEntity="Produit")
+     * @ORM\ManyToOne(targetEntity="Produit")
      * @ORM\JoinColumn(name="id_Produit",referencedColumnName="id")
      *
      */

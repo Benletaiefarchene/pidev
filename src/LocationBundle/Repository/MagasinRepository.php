@@ -10,4 +10,18 @@ namespace LocationBundle\Repository;
  */
 class MagasinRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAvecregion( $nom_region)
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        // On fait une jointure avec l'entité Categorie, avec pour alias « c »
+        $qb ->join('a.Region', 'c')
+            ->where('c.nom', $nom_region); // Puis on filtre sur le nom des catégories à l'aide d'un IN
+
+        // Enfin, on retourne le résultat
+        return $qb->getQuery()
+            ->getResult();
+}
+
+
 }

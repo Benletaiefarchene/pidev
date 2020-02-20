@@ -2,6 +2,7 @@
 
 namespace LocationBundle\Controller;
 
+use LocationBundle\Entity\Magasin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,5 +16,18 @@ class DefaultController extends Controller
             "posts" =>$posts
         ));
         return $this->redirectToRoute('home_page');
+    }
+
+    public function mapAction(){
+
+        return $this->render('@Location/Default/map.html.twig');
+    }
+    public function villeAction($ville)
+    {
+        $m=$this->getDoctrine()->getRepository(Magasin::class)->findBy(array('id_region' =>$ville));
+
+        return $this->render('@Location/Default/consultermagasin.html.twig', array(
+            'list' => $m
+        ));
     }
 }

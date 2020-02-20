@@ -1,6 +1,7 @@
 <?php
 namespace LocationBundle\Controller;
 
+use AppBundle\Entity\Notification;
 use LocationBundle\Entity\Magasin;
 use LocationBundle\Form\MagasinType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,7 +24,21 @@ if($form->isValid()){
 $em=$this->getDoctrine()->getManager();
 $em->persist($M);
 $em->flush();
-return $this->redirectToRoute('Magasin_list');
+
+    $notification = new Notification();
+    $notification
+        ->setTitle('New magasin')
+        ->setDescription($M->getNameM())
+        ->setRoute('Magasin_list')// I suppose you have a show route for your entity
+        ->setParameters(array('id' => $M->getId()))
+    ;
+    $em->persist($notification);
+    $em->flush();
+
+    $pusher=$this->get('mrad.pusher.notificaitons');
+    $pusher->trigger($notification);
+
+  return $this->redirectToRoute('Magasin_list');
 
 
 }else {

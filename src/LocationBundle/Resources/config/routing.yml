@@ -50,3 +50,12 @@ Location_update:
 Location_delete:
     path: /deleteLocation/{id}
     defaults: { _controller: LocationBundle:Location:deleteLocation }
+
+Location_ville:
+    path:     /map/{ville}
+    defaults: { _controller: LocationBundle:Default:ville}
+
+map:
+    path: /map
+    defaults: {_controller: LocationBundle:Default:map}
+

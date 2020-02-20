@@ -81,3 +81,10 @@ fos_user:
     from_email:
         address: "test@test.com" # change this
         sender_name: "Test App"  # and this
+
+# NotificationsBundle configuration
+notifications:
+    app_id:     950565
+    app_key:    2a38e85f1c8cab07c892
+    app_secret: 31285b357a6225ec7eea
+    cluster:    eu
