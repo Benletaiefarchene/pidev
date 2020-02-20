@@ -75,6 +75,29 @@ class PostRepository extends EntityRepository
                 'SELECT p
                 FROM BlogBundle:Post p
                 WHERE p.title LIKE :str'
+
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+    public function findDescByString($str){
+    return $this->getEntityManager()
+        ->createQuery(
+            'SELECT p
+                FROM BlogBundle:Post p
+                WHERE p.description LIKE :str'
+
+        )
+        ->setParameter('str', '%'.$str.'%')
+        ->getResult();
+}
+    public function findDateByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM BlogBundle:Post p
+                WHERE p.postdate LIKE :str'
+
             )
             ->setParameter('str', '%'.$str.'%')
             ->getResult();

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="BlogBundle\Repository\CommentaireRepository")
- * @ORM\Table(name="Commentaire")
+ * @ORM\Table(name="`Commentaire`")
  * @ORM\HasLifecycleCallbacks()
  */
 
@@ -19,9 +19,53 @@ class Commentaire
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text", unique=false)
+     * @ORM\Column(name="`content`", type="text", unique=false)
      */
     private $content;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="`like`", type="integer", unique=false)
+     */
+    private $like;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="`dislike`", type="integer", unique=false)
+     */
+    private $dislike;
+
+    /**
+     * @return int
+     */
+    public function getLike()
+    {
+        return $this->like;
+    }
+
+    /**
+     * @param int $like
+     */
+    public function setLike($like)
+    {
+        $this->like = $like;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDislike()
+    {
+        return $this->dislike;
+    }
+
+    /**
+     * @param int $dislike
+     */
+    public function setDislike($dislike)
+    {
+        $this->dislike = $dislike;
+    }
 
 
 

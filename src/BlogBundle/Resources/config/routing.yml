@@ -22,6 +22,9 @@ detailed_post:
     path:     /detailedpost/{id}
     defaults: { _controller: BlogBundle:Blog:showdetailed }
 
+ajax_search:
+    path:     /search
+    defaults: { _controller: BlogBundle:Blog:search }
 
 
 add_comment:
@@ -30,3 +33,11 @@ add_comment:
 delete_comment:
     path:     /deletecomment/{id}
     defaults: { _controller: BlogBundle:Blog:deleteComment }
+
+comment_like:
+    path: /like/{id}
+    defaults: { _controller: BlogBundle:Blog:like }
+
+comment_dislike:
+    path: /dislike/{id}
+    defaults: { _controller: BlogBundle:Blog:dislike }

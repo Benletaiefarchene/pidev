@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new BlogBundle\BlogBundle(),
             new ReclamationBundle\ReclamationBundle(),
             new PaiBundle\PaiBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

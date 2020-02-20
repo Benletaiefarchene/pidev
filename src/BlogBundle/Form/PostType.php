@@ -4,6 +4,7 @@
 
 namespace BlogBundle\Form;
 
+use blackknight467\StarRatingBundle\Form\RatingType;
 use Doctrine\ORM\EntityRepository;
 
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,6 +28,7 @@ class PostType extends AbstractType
             ->add('title')
             ->add('description', TextareaType::class)
             ->add('photo', FileType::class)
+            ->add('rating', RatingType::class, ['label' => 'Rating' ])
             ->add('Submit', SubmitType::class);
     }/**
  * {@inheritdoc}

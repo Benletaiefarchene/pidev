@@ -1,4 +1,9 @@
 {% extends 'Page.html.twig' %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+{% endblock head %}
 {% block body %}
     <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
         <div class="container">
@@ -11,6 +16,7 @@
         </div>
     </section>
 {% endblock body %}
+
 {% block container %}
 
 
@@ -21,6 +27,7 @@
 
 
         <hr>
+        <p> {{ 4|rating }}</p>
 
         <!-- Date/Time -->
         <p>{{ date|date }}</p>
@@ -42,6 +49,10 @@
 
 
             <h5 class="card-header">Leave a Comment:</h5>
+         {{ 4|rating }}
+         <p class="rating">{{ '4'|rating }}</p>
+         {{ 3|rating(5, "fa-3x") }}
+         <p> {{ 4|rating }}</p>
 
                 <form action="{{ path('add_comment') }}" method="post" id="comment">
 
@@ -61,6 +72,9 @@
 
                 <h5 class="mt-0">{{ comment.getUser().getUsername() }}</h5>
                 <p>{{ comment.getContent() }}</p>
+                <button hidden id="comment">{{ comment.id }}</button>
+                <p><button onclick="like({{ comment.id }},this)" type="button" class="btn btn-primary">like({{ comment.like }})</button></p>
+                <p><button  onclick="disklike({{ comment.id }},this)" type="button" class="btn btn-primary">dislike({{ comment.dislike }})</button></p>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {% if(comment.user.id== app.user.id) %}
 
@@ -100,5 +114,29 @@
 
     </div>
     <!-- /.container -->
+    <script>
+        function like (id,el){
+            $.ajax({
+                url:'/PIDEV/web/app_dev.php/blog/like/'+id,
+                type:'get',
+                success:function(result){
+                    console.log(result);
+                    $(el).text("LIKE("+result+")");
 
+                }
+            });
+        }
+        function disklike(id,el){
+            $.ajax({
+                url:'/PIDEV/web/app_dev.php/blog/dislike/'+id,
+                type:'get',
+                success:function(result){
+                    console.log(result);
+                    $(el).text("DISLIKE("+result+")");
+
+                }
+            });
+        }
+
+    </script>
 {% endblock %}

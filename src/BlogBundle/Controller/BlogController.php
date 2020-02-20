@@ -3,6 +3,7 @@
 namespace BlogBundle\Controller;
 use BlogBundle\Entity\Post;
 use BlogBundle\Entity\Commentaire;
+use BlogBundle\Repository\CommentaireRepository;
 use BlogBundle\Repository\PostRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -102,7 +103,45 @@ class BlogController extends Controller
             'id'=>$p->getId()
         ));
     }
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $posts =  $em->getRepository('BlogBundle:Post')->findEntitiesByString($requestString);
+        $post =  $em->getRepository('BlogBundle:Post')->findDescByString($requestString);
+        $date =  $em->getRepository('BlogBundle:Post')->findDateByString($requestString);
+        if(!$posts) {
+            $result['posts']['error'] = "Post Not found :( ";
+        } else {
+            $result['posts'] = $this->getRealEntities($posts);
+        }
+        if(!$post) {
+        $result['posts']['error'] = "Post Not found :( ";
+         } else {
+        $result['posts'] = $this->getRealEntities($post);
+    }
+        if(!$date) {
+            $result['posts']['error'] = "Post Not found :( ";
+        } else {
+            $result['posts'] = $this->getRealEntities($date);
+        }
+        return new Response(json_encode($result));
 
+
+    }
+    public function getRealEntities($posts){
+                foreach ($posts as $posts){
+            $realEntities[$posts->getId()] = [$posts->getPhoto(),$posts->getTitle(),];
+
+        }
+        foreach ($posts as $post) {
+            $realEntities[$post->getId()] = [$post->getPhoto(), $post->getTitle(),];
+        }
+        foreach ($posts as $date) {
+            $realEntities[$date->getId()] = [$date->getPhoto(), $date->getTitle(),];
+        }
+        return $realEntities;
+    }
 
     public function addCommentAction(Request $request, UserInterface $user)
     {
@@ -118,6 +157,8 @@ class BlogController extends Controller
         $comment->setUser($user);
         $comment->setPost($post);
         $comment->setContent($request->request->get('comment'));
+        $comment->setLike(0);
+        $comment->setDislike(0);
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
         $em->flush();
@@ -138,5 +179,27 @@ class BlogController extends Controller
         $em->remove($comment);
         $em->flush();
         return $this->redirectToRoute('list_post');
+    }
+
+    public function  likeAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $em->getRepository('BlogBundle:Commentaire')->find($id);
+        $new = $commentaire->getLike()+1;
+        $commentaire->setLike($new);
+        dump($commentaire);
+        $em->persist($commentaire);
+        $em->flush();
+        return new Response($new);
+    }
+
+    public function  dislikeAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $em->getRepository('BlogBundle:Commentaire')->find($id);
+        $new = $commentaire->getDislike()+1;
+        $commentaire->setDislike($new);
+        dump($commentaire);
+        $em->persist($commentaire);
+        $em->flush();
+        return new Response($new);
     }
 }
