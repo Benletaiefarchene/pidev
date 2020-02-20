@@ -8,32 +8,33 @@
             </h2></center>
         <div class="form-group has-error">
             {{ form_start(Form) }}
-            {{ form_widget(Form.idEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'idEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.nomEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'nomEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.typeEvenement,{'attr':{'type':'textarea','class':'form-control','placeholder':'typeEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.lieuEvenement,{'attr':{'type':'text','class':'form-control','placeholder':'lieuEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.description,{'attr':{'type':'text','class':'form-control','placeholder':'description...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.nbParticipant,{'attr':{'type':'text','class':'form-control','placeholder':'nbrParticipant...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.dateEvenement,{'attr':{'type':'date','class':'form-control','placeholder':'dateEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.typeEvenement,{'attr':{'type':'textarea','class':'form-control','placeholder':'typeEvenement...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.etat,{'attr':{'type':'textarea','class':'form-control','placeholder':'etat...'}}) }}
-            <br> <br> <br>
-            {{ form_widget(Form.nbInteresser,{'attr':{'type':'textarea','class':'form-control','placeholder':'nbInteresser...'}}) }}
-            <center> {{ form_widget(Form.Submit,{'attr':{'type':'text','class':'btn btn-common','placeholder':'Submit...'}}) }}        </center>
-            <br> <br> <br>
+            <div class="form-group">
+                {{ form_widget(Form.nomEvenement,{'attr':{'class':'form-control','placeholder':'Nom'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(Form.lieuEvenement,{'attr':{'class':'form-control','placeholder':'Lieu'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(Form.description,{'attr':{'class':'form-control','placeholder':'Description'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(Form.dateEvenement) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(Form.typeEvenement,{'attr':{'class':'form-control','placeholder':'Type'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(Form.categorie,{'attr':{'class':'form-control select2','placeholder':'Categorie'}}) }}
+            </div>
+            <center> {{ form_widget(Form.Submit,{'attr':{'class':'btn btn-circle btn-primary m-b-10'}}) }}</center>
             {{ form_end(Form) }}
         </div>
-
-
-
-
-
+    <script src="{{ asset ('back/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset ('back/js/jn²query-ui.min.js')}}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            $('#evenementbundle_evenement_categorie').select2();
+            $('#evenementbundle_evenement_dateEvenement').datepicker();
+        });
+    </script>
 {% endblock %}

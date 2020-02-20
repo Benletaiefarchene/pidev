@@ -84,26 +84,32 @@
     <tbody>
     <tr class="odd gradeX">
     <tr>
-                                                    {% for form in even %}
-                                                    <td>{{ form.idEvenement }}</td>
-                                                    <td>{{ form.nomEvenement }}</td>
-                                                    <td>{{ form.typeEvenement }}</td>
-                                                    <td>{{ form.lieuEvenement }}</td>
-                                                    <td>{{ form.description }}</td>
-                                                        <td>{{ form.nbParticipant }}</td>
-                                                    <td>{{ form.dateEvenement|date('Y-m-d')}}</td>
-                                                    <td>{{ form.nbInteresser }}</td>
-
-
+        {% for form in even %}
+        <td>{{ form.idEvenement }}</td>
+        <td>{{ form.nomEvenement }}</td>
+        <td>{{ form.typeEvenement }}</td>
+        <td>{{ form.lieuEvenement }}</td>
+        <td>{{ form.description }}</td>
+        <td>{{ form.participants|length }}</td>
+        <td>{{ form.dateEvenement|date('Y-m-d')}}</td>
+        <td>0</td>
         <td>{{ form.etat }}</td>
         <td>
-            <a href="{{ path ('evenmodifier',{'idEvenement':form.idEvenement}) }}" class="btn btn-primary btn-xs">
-            <i class="fa fa-pencil"></i>
-            </a>
-            <a  href="{{ path ('eventsupp',{'idEvenement':form.idEvenement}) }}">
-                <button class="btn btn-danger btn-xs">
-                    <i class="fa fa-trash-o "></i>
-                </button>
+            {% if form.etat == 'pending' %}
+                <a href="{{ path ('eventChangeStatus',{'id':form.idEvenement,'etat':'Active'}) }}" class="btn btn-primary btn-xs">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            {% elseif form.etat == 'Disabled' %}
+                <a href="{{ path ('eventChangeStatus',{'id':form.idEvenement,'etat':'Active'}) }}" class="btn btn-primary btn-xs">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            {% elseif form.etat ==  'Active' %}
+                <a  href="{{ path ('eventChangeStatus',{'id':form.idEvenement,'etat':'Disabled'}) }}">
+                    <button class="btn btn-danger btn-xs">
+                        <i class="fa fa-trash-o "></i>
+                    </button>
+                </a>
+            {% endif %}
         </td>
 
 

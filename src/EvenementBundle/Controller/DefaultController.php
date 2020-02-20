@@ -8,7 +8,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@Evenement/Event/home.html.twig');
+        return $this->render('index.html.twig');
     }
     public function ParticiperAction()
     {

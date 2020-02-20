@@ -17,6 +17,7 @@ class Categorie
      *
      * @ORM\Column(name="id_categorie", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id_categorie;
 

@@ -2,6 +2,7 @@
 
 namespace EvenementBundle\Entity;
 
+use AppBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,33 +50,22 @@ class Evenement
      */
     private $description;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="NB_participant", type="integer", nullable=true)
-     */
-    private $nbParticipant = '0';
+
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="Date_evenement", type="string", length=255, nullable=true)
+     * @ORM\Column(name="Date_evenement", type="date", nullable=true)
      */
     private $dateEvenement;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="NB_interesser", type="integer", nullable=true)
-     */
-    private $nbInteresser = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Etat", type="string", length=255, nullable=true)
+     * @ORM\Column(name="Etat",type="string", length=255, columnDefinition="ENUM('pending', 'Active', 'Disabled','Expired')")
      */
-    private $etat = 'D';
+    private $etat;
 
 
     /**
@@ -84,6 +74,23 @@ class Evenement
      */
     private $categorie;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="evenements")
+     * @ORM\JoinTable(name="participant",
+     *      joinColumns={@ORM\JoinColumn(name="id_evenement", referencedColumnName="id_evenement")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
+     *      )
+     */
+    private $participants;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", inversedBy="evenementsInteresse")
+     * @ORM\JoinTable(name="interesse",
+     *      joinColumns={@ORM\JoinColumn(name="id_evenement", referencedColumnName="id_evenement")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")}
+     *      )
+     */
+    private $interesses;
     /**
      * @return int
      */
@@ -165,23 +172,7 @@ class Evenement
     }
 
     /**
-     * @return int
-     */
-    public function getNbParticipant()
-    {
-        return $this->nbParticipant;
-    }
-
-    /**
-     * @param int $nbParticipant
-     */
-    public function setNbParticipant($nbParticipant)
-    {
-        $this->nbParticipant = $nbParticipant;
-    }
-
-    /**
-     * @return string
+     * @return \DateTime
      */
     public function getDateEvenement()
     {
@@ -189,7 +180,7 @@ class Evenement
     }
 
     /**
-     * @param string $dateEvenement
+     * @param \DateTime $dateEvenement
      */
     public function setDateEvenement($dateEvenement)
     {
@@ -198,21 +189,7 @@ class Evenement
 
 
 
-    /**
-     * @return int
-     */
-    public function getNbInteresser()
-    {
-        return $this->nbInteresser;
-    }
 
-    /**
-     * @param int $nbInteresser
-     */
-    public function setNbInteresser($nbInteresser)
-    {
-        $this->nbInteresser = $nbInteresser;
-    }
 
     /**
      * @return string
@@ -229,23 +206,6 @@ class Evenement
     {
         $this->etat = $etat;
     }
-
-    /**
-     * @return \Utilisateur
-     */
-    public function getIdUtilisateur()
-    {
-        return $this->idUtilisateur;
-    }
-
-    /**
-     * @param \Utilisateur $idUtilisateur
-     */
-    public function setIdUtilisateur($idUtilisateur)
-    {
-        $this->idUtilisateur = $idUtilisateur;
-    }
-
 
 
     /**
@@ -295,4 +255,73 @@ class Evenement
     {
         return $this->categorie;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * @param mixed $participants
+     */
+    public function setParticipants($participants)
+    {
+        $this->participants = $participants;
+    }
+
+    public function addParticipants(User $user)
+    {
+        if (!$this->participants->contains($user)) {
+            $this->participants[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeParticipants(User $user)
+    {
+        if ($this->participants->contains($user)) {
+            $this->participants->removeElement($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInteresses()
+    {
+        return $this->interesses;
+    }
+
+    /**
+     * @param mixed $interesses
+     */
+    public function setInteresses($interesses)
+    {
+        $this->interesses = $interesses;
+    }
+
+    public function addInteresses(User $user)
+    {
+        if (!$this->interesses->contains($user)) {
+            $this->interesses[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeInteresses(User $user)
+    {
+        if ($this->interesses->contains($user)) {
+            $this->interesses->removeElement($user);
+        }
+
+        return $this;
+    }
+
 }

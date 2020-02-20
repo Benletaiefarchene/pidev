@@ -4,14 +4,15 @@
 
     <center><h2 class="contact-title">
             <br><br>
-            Create your Post !
+            Ajouter une Categorie !
         </h2></center>
     <div class="form-group has-error">
         {{ form_start(Form) }}
-        {{ form_widget(Form.id_categorie,{'attr':{'type':'text','class':'form-control','placeholder':'id_categorie...'}}) }}
         <br> <br> <br>
-        {{ form_widget(Form.libelle,{'attr':{'type':'text','class':'form-control','placeholder':'libelle...'}}) }}
-        <center> {{ form_widget(Form.Submit,{'attr':{'type':'text','class':'btn btn-common','placeholder':'Submit...'}}) }}        </center>
+        <div class="form-group">
+            {{ form_widget(Form.libelle,{'attr':{'class':'form-control','placeholder':'libelle'}}) }}
+        </div>
+        <center> {{ form_widget(Form.Submit,{'attr':{'class':'btn btn-circle btn-primary m-b-10'}}) }}        </center>
         <br> <br> <br>
 
         {{ form_end(Form) }}

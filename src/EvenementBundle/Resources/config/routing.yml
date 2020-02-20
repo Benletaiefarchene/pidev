@@ -1,28 +1,18 @@
 evenement_homepage:
     path:     /
     defaults: { _controller: EvenementBundle:Default:index }
-
 home:
     path:     /home
     defaults: { _controller: EvenementBundle:Default:index }
-
 Participer:
     path:     /participer
     defaults: { _controller: EvenementBundle:EvenementParticipant:listparticp }
 Participercat:
     path:     /participercat
     defaults: { _controller: EvenementBundle:EvenementParticipant:listcatfron }
-
 eventadmin:
     path:     /eventadmin
     defaults: { _controller: EvenementBundle:EvenementAdmin:afficheeventAadmin}
-
-eventadminD:
-    path:     /eventadminD
-    defaults: { _controller: EvenementBundle:EvenementAdmin:afficheeventDadmin}
-Recherche:
-    path:     /Recherche
-    defaults: { _controller: EvenementBundle:EvenementAdmin:rechercheevent}
 Ajout:
     path:     /add
     defaults: { _controller: EvenementBundle:EvenementAdmin:add}
@@ -32,6 +22,9 @@ eventsupp:
 eventlist:
     path:     /list
     defaults: { _controller: EvenementBundle:EvenementAdmin:list}
+eventChangeStatus:
+    path:     /changeStatus/{id}/{etat}
+    defaults: { _controller: EvenementBundle:EvenementAdmin:changeStatus}
 evenmodifier:
     path:     /evenmodifier/{idEvenement}
     defaults: { _controller: EvenementBundle:EvenementAdmin:modifier}
@@ -47,3 +40,25 @@ catmodifier:
 catsupp:
     path:     /catsupp/{id_categorie}
     defaults: { _controller: EvenementBundle:Categorie:supprimcat}
+clickParticipate:
+    path:     /clickpart/{id}
+    defaults: { _controller: EvenementBundle:EvenementParticipant:participate }
+annulParticipate:
+    path:     /annulpart/{id}
+    defaults: { _controller: EvenementBundle:EvenementParticipant:annulParticipate }
+clickIntrest:
+    path:     /clickint/{id}
+    defaults: { _controller: EvenementBundle:EvenementParticipant:intrest }
+annulIntreste:
+    path:     /annulint/{id}
+    defaults: { _controller: EvenementBundle:EvenementParticipant:annulIntrest }
+showEvent:
+    path:     /showEvenet/{id}
+    defaults: { _controller: EvenementBundle:EvenementParticipant:showEvent }
+search_event:
+    path:     /search
+    defaults: { _controller: EvenementBundle:EvenementParticipant:search }
+search_result_event:
+    path:     /search/result
+    defaults: { _controller: EvenementBundle:EvenementParticipant:searchResult }
+

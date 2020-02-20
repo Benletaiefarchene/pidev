@@ -68,6 +68,7 @@ class EvenementAdminController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
+            $even->setEtat('pending');
             $em = $this->getDoctrine()->getManager();
 
 
@@ -116,6 +117,12 @@ class EvenementAdminController extends Controller
         $even= $em->getRepository(Evenement::class)->find($idEvenement);//recuperation de avis a supp
         $em->remove($even);
         $em->flush();//supp
+        return $this->redirectToRoute("eventlist");
+    }
+    public function changeStatusAction(Evenement $evenement,string $etat)
+    {
+        $evenement->setEtat($etat);
+        $this->getDoctrine()->getManager()->flush();
         return $this->redirectToRoute("eventlist");
     }
 
