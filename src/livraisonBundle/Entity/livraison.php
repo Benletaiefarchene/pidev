@@ -3,12 +3,18 @@
 namespace livraisonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\FormTypeInterface;
+use livraisonBundle\Entity\transporteur;
+use Doctrine\Common\Collections\ArrayCollection;
+
+
+
 
 /**
  * livraison
  *
  * @ORM\Table(name="livraison")
- * @ORM\Entity(repositoryClass="livraisonBundle\Repository\livraisonRepository")
+ * @ORM\Entity(repositoryClass="livraisonBundle\Repository\LivraisonRepository")
  */
 class livraison
 {
@@ -45,9 +51,16 @@ class livraison
     /**
      * @var string
      *
-     * @ORM\Column(name="etatlivraison", type="string", length=255)
+     * @ORM\Column(name="etatlivraison", type="boolean")
      */
     private $etatlivraison;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="livraisonBundle\Entity\transporteur",inversedBy="livraison")
@@ -164,11 +177,11 @@ class livraison
     /**
      * Set transporteur
      *
-     * @param \livraisonBundle\Entity\Ptransporteur $transporteur
+     * @param \livraisonBundle\Entity\transporteur $transporteur
      *
      * @return livraison
      */
-    public function setTransporteur(\livraisonBundle\Entity\Ptransporteur $transporteur = null)
+    public function setTransporteur(transporteur $transporteur)
     {
         $this->transporteur = $transporteur;
 
@@ -178,10 +191,27 @@ class livraison
     /**
      * Get transporteur
      *
-     * @return \livraisonBundle\Entity\Ptransporteur
+     * @return \livraisonBundle\Entity\transporteur
      */
     public function getTransporteur()
     {
         return $this->transporteur;
     }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
 }

@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block container  %}
+
+
+   <form method= "POST">
+      Nom:<input type="text" name ="nom" value="{{ transp.nom }}"><br/>
+      Prénom:<input type="text" name = "prenom" value="{{ transp.prenom }}"><br/>
+      Num tel:<input type="text" name ="tel" value="{{ transp.tel }}"><br/>
+      Email:<input type="text" name="email" value="{{ transp.email }}"><br/>
+      <input type="submit"value="Enregister">
+
+   </form>
+{% endblock %}

@@ -1,3 +1,6 @@
+index_page:
+    path:     /home
+    defaults: { _controller: livraisonBundle:Default:index }
 livraison_homepage:
     path:     /
     defaults: { _controller: livraisonBundle:Default:index }
@@ -7,3 +10,46 @@ RechercherLivraison:
 list:
     path: /list
     defaults: {_controller: livraisonBundle:Default:index}
+ConsulterLivraison:
+    path: /ConsulterLivraison
+    defaults: {_controller: livraisonBundle:Default:read}
+AjouterLivraison:
+    path: /ajouterLivraison
+    defaults: {_controller: livraisonBundle:Default:new}
+test:
+    path: /test
+    defaults: {_controller: livraisonBundle:Default:affecter}
+
+livraison_ville:
+    path:     /map/{ville}
+    defaults: { _controller: livraisonBundle:Default:ville}
+
+
+SupprimerLivraison:
+        path: /supprimerLivraison
+        defaults: {_controller: livraisonBundle:Default:delete}
+SupprimerLivraison2:
+        path: /liv
+        defaults: {_controller: livraisonBundle:transport:delete2}
+AjouterTransporteur:
+    path: /ajouterTransporteur
+    defaults: {_controller: livraisonBundle:transport:addt}
+ConsulterTransporteur:
+    path: /consulterTransporteur
+    defaults: {_controller: livraisonBundle:transport:readt}
+SupprimerTransporteur:
+        path: /supprimerTransporteur/{id}
+        defaults: {_controller: livraisonBundle:transport:deletet}
+ModifierTransporteur:
+    path: /modifierTransporteur/{id}
+    defaults: {_controller: livraisonBundle:transport:updatet}
+affecterTransporteur:
+    path: /affecterTransporteur/{id}
+    defaults: {_controller: livraisonBundle:Default:affecter}
+affichelivraison:
+      path: /affichelivraison
+      defaults: {_controller: livraisonBundle:transport:affiche}
+statregion:
+    path: /statregion
+    defaults: {_controller: livraisonBundle:Default:statregion}
+

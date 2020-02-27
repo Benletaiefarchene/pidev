@@ -1,0 +1,39 @@
+{% extends 'back.html.twig' %}
+
+
+{% block container %}
+    <a href="{{ path('produit_ajouterProduits') }}">
+        <button type="button" class="btn btn-success " style="width: 30%;margin: 10px 30%;" > Ajouter Produit</button>
+    </a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Reference</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Action</th>
+            <th scope="col">Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <th scope="row">{{produit.id}}</th>
+                <td>{{produit.libelle}}</td>
+                <td>{{produit.qte}}</td>
+                <td>{{produit.prix}}</td>
+                <td>{{produit.Categorie.libelle}}</td>
+
+
+             <td>   <a  href="{{ path ('produit_supprimerProduits',{'id':produit.id}) }}">Supprimer</a>
+
+                </td>
+
+                <td><img src="{{ asset('produit/uploads/images/' ~ produit.image ) }} " width="60px" height="50px" /> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -117,3 +117,11 @@ nomaya_social:
         facebook:           "http://www.facebook.com/yann.chauvel"
         googleplus:         "https://plus.google.com/105931415830389032796"
     theme:                  'default' # optional
+cmen_google_charts:
+    version: "current"
+# NotificationsBundle configuration
+notifications:
+    app_id:     950565
+    app_key:    2a38e85f1c8cab07c892
+    app_secret: 31285b357a6225ec7eea
+    cluster:    eu

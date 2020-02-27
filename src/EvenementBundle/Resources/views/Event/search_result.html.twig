@@ -1,0 +1,216 @@
+{% extends "front.html.twig" %}
+
+{% block container  %}
+    <section class="module">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="row multi-columns-row post-columns">
+                        {% if (events|length) == 0 %}
+                            <h3>No results Found!</h3>
+                        {% elseif (events|length) == 1 %}
+                            <div class="col-md-6 col-lg-6">
+                                <div class="post">
+                                    <div class="post-header font-alt">
+                                        <div class="post-thumbnail"><a href="#"><img src="{{ asset ('front/images/evenphoto.jpg')}}" alt="Blog-post Thumbnail"/></a></div>
+                                        <h2 class="post-title"><div class="row"><a class="col-md-9" href="#">{{ events[0].nomEvenement }}</a><div class="col-md-3">{{ twitterButton() }}</div></div></h2>
+                                        <div class="post-meta"><a href="#">{{ events[0].typeEvenement }}</a>&nbsp;|&nbsp;{{ events[0].dateEvenement|date('d-m-Y') }}&nbsp;|&nbsp;{{ events[0].lieuEvenement }}&nbsp;|&nbsp;{{ events[0].participants|length }}&nbsp;participants&nbsp;|&nbsp;{{ events[0].interesses|length }} interessé
+                                        </div>
+                                    </div>
+                                    <div class="post-entry">
+                                        <p>{{ events[0].description }}</p>
+                                    </div>
+                                    <div class="row">
+                                        {% set existePart = false %}
+                                        {% for participant in events[0].participants %}
+                                            {% if participant.id == app.user.id %}
+                                                {% set existePart = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existePart == false %}
+                                            <a href="{{ path('clickParticipate',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-flag"></i>&nbsp;Participer</a>
+                                        {% else %}
+                                            <a href="{{ path('annulParticipate',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Annuler</a>
+                                        {% endif %}
+                                        {% set existeInt = false %}
+                                        {% for interesse in events[0].interesses %}
+                                            {% if interesse.id == app.user.id %}
+                                                {% set existeInt = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existeInt == false %}
+                                            <a href="{{ path('clickIntrest',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-heart"></i>&nbsp;Interesser</a>
+                                        {% else %}
+                                            <a href="{{ path('annulIntreste',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Désinteresser</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="post-more"><a class="more-link" href="{{ path('showEvent',{'id':events[0].idEvenement}) }}">Read more</a></div>
+                                </div>
+                            </div>
+                        {% elseif (events|length)==2 %}
+                            <div class="col-md-6 col-lg-6">
+                                <div class="post">
+                                    <div class="post-header font-alt">
+                                        <div class="post-thumbnail"><a href="#"><img src="{{ asset ('front/images/evenphoto.jpg')}}" alt="Blog-post Thumbnail"/></a></div>
+                                        <h2 class="post-title"><div class="row"><a class="col-md-9" href="#">{{ events[0].nomEvenement }}</a><div class="col-md-3">{{ twitterButton() }}</div></div></h2>
+                                        <div class="post-meta"><a href="#">{{ events[0].typeEvenement }}</a>&nbsp;|&nbsp;{{ events[0].dateEvenement|date('d-m-Y') }}&nbsp;|&nbsp;{{ events[0].lieuEvenement }}&nbsp;|&nbsp;{{ events[0].participants|length }}&nbsp;participants&nbsp;|&nbsp;{{ events[0].interesses|length }} interessé
+                                        </div>
+                                    </div>
+                                    <div class="post-entry">
+                                        <p>{{ events[0].description }}</p>
+                                    </div>
+                                    <div class="row">
+                                        {% set existePart = false %}
+                                        {% for participant in events[0].participants %}
+                                            {% if participant.id == app.user.id %}
+                                                {% set existePart = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existePart == false %}
+                                            <a href="{{ path('clickParticipate',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-flag"></i>&nbsp;Participer</a>
+                                        {% else %}
+                                            <a href="{{ path('annulParticipate',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Annuler</a>
+                                        {% endif %}
+                                        {% set existeInt = false %}
+                                        {% for interesse in events[0].interesses %}
+                                            {% if interesse.id == app.user.id %}
+                                                {% set existeInt = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existeInt == false %}
+                                            <a href="{{ path('clickIntrest',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-heart"></i>&nbsp;Interesser</a>
+                                        {% else %}
+                                            <a href="{{ path('annulIntreste',{'id':events[0].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Désinteresser</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="post-more"><a class="more-link" href="{{ path('showEvent',{'id':events[0].idEvenement}) }}">Read more</a></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="post">
+                                    <div class="post-thumbnail"><a href="#"><img src="{{ asset ('front/images/evenphoto.jpg')}}" alt="Blog-post Thumbnail"/></a></div>
+                                    <div class="post-header font-alt">
+                                        <h2 class="post-title"><div class="row"><a class="col-md-9" href="#">{{ events[1].nomEvenement }}</a><div class="col-md-3">{{ twitterButton() }}</div></div></h2>
+                                        <div class="post-meta"><a href="#">{{ events[1].typeEvenement }}</a>&nbsp;|&nbsp;{{ events[1].dateEvenement|date('d-m-Y') }}&nbsp;|&nbsp;{{ events[1].lieuEvenement }}&nbsp;|&nbsp;{{ events[1].participants|length }}&nbsp;participants&nbsp;|&nbsp;{{ events[1].interesses|length }} interessé
+                                        </div>
+                                    </div>
+                                    <div class="post-entry">
+                                        <p>{{ events[1].description }}</p>
+                                    </div>
+                                    <div class="row">
+                                        {% set existePart = false %}
+                                        {% for participant in events[1].participants %}
+                                            {% if participant.id == app.user.id %}
+                                                {% set existePart = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existePart == false %}
+                                            <a href="{{ path('clickParticipate',{'id':events[1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-flag"></i>&nbsp;Participer</a>
+                                        {% else %}
+                                            <a href="{{ path('annulParticipate',{'id':events[1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Annuler</a>
+                                        {% endif %}
+                                        {% set existeInt = false %}
+                                        {% for interesse in events[1].interesses %}
+                                            {% if interesse.id == app.user.id %}
+                                                {% set existeInt = true %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% if existeInt == false %}
+                                            <a href="{{ path('clickIntrest',{'id':events[1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-heart"></i>&nbsp;Interesser</a>
+                                        {% else %}
+                                            <a href="{{ path('annulIntreste',{'id':events[1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Désinteresser</a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="post-more"><a class="more-link" href="{{ path('showEvent',{'id':events[1].idEvenement}) }}">Read more</a></div>
+                                </div>
+                            </div>
+                        {% else %}
+                            {% for i in range(0,(events|length)-1,2) %}
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="post">
+                                        <div class="post-header font-alt">
+                                            <div class="post-thumbnail"><a href="#"><img src="{{ asset ('front/images/evenphoto.jpg')}}" alt="Blog-post Thumbnail"/></a></div>
+                                            <h2 class="post-title"><div class="row"><a class="col-md-9" href="#">{{ events[i].nomEvenement }}</a><div class="col-md-3">{{ twitterButton() }}</div></div></h2>
+                                            <div class="post-meta"><a href="#">{{ events[i].typeEvenement }}</a>&nbsp;|&nbsp;{{ events[i].dateEvenement|date('d-m-Y') }}&nbsp;|&nbsp;{{ events[i].lieuEvenement }}&nbsp;|&nbsp;{{ events[i].participants|length }}&nbsp;participants&nbsp;|&nbsp;{{ events[i].interesses|length }} interessé
+                                            </div>
+                                        </div>
+                                        <div class="post-entry">
+                                            <p>{{ events[i].description }}</p>
+                                        </div>
+                                        <div class="row">
+                                            {% set existePart = false %}
+                                            {% for participant in events[i].participants %}
+                                                {% if participant.id == app.user.id %}
+                                                    {% set existePart = true %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if existePart == false %}
+                                                <a href="{{ path('clickParticipate',{'id':events[i].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-flag"></i>&nbsp;Participer</a>
+                                            {% else %}
+                                                <a href="{{ path('annulParticipate',{'id':events[i].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Annuler</a>
+                                            {% endif %}
+                                            {% set existeInt = false %}
+                                            {% for interesse in events[i].interesses %}
+                                                {% if interesse.id == app.user.id %}
+                                                    {% set existeInt = true %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% if existeInt == false %}
+                                                <a href="{{ path('clickIntrest',{'id':events[i].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-heart"></i>&nbsp;Interesser</a>
+                                            {% else %}
+                                                <a href="{{ path('annulIntreste',{'id':events[i].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Désinteresser</a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="post-more"><a class="more-link" href="{{ path('showEvent',{'id':events[i].idEvenement}) }}">Read more</a></div>
+                                    </div>
+                                </div>
+                                {% if i<(events|length)-1 %}
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="post">
+                                            <div class="post-header font-alt">
+                                                <div class="post-thumbnail"><a href="#"><img src="{{ asset ('front/images/evenphoto.jpg')}}" alt="Blog-post Thumbnail"/></a></div>
+                                                <h2 class="post-title"><div class="row"><a class="col-md-9" href="#">{{ events[i+1].nomEvenement }}</a><div class="col-md-3">{{ twitterButton() }}</div></div></h2>
+                                                <div class="post-meta"><a href="#">{{ events[i+1].typeEvenement }}</a>&nbsp;|&nbsp;{{ events[i+1].dateEvenement|date('d-m-Y') }}&nbsp;|&nbsp;{{ events[i+1].lieuEvenement }}&nbsp;|&nbsp;{{ events[i+1].participants|length }}&nbsp;participants&nbsp;|&nbsp;{{ events[i+1].interesses|length }} interessé
+                                                </div>
+                                            </div>
+                                            <div class="post-entry">
+                                                <p>{{ events[i+1].description }}</p>
+                                            </div>
+                                            <div class="row">
+                                                {% set existePart = false %}
+                                                {% for participant in events[i+1].participants %}
+                                                    {% if participant.id == app.user.id %}
+                                                        {% set existePart = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if existePart == false %}
+                                                    <a href="{{ path('clickParticipate',{'id':events[i+1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-flag"></i>&nbsp;Participer</a>
+                                                {% else %}
+                                                    <a href="{{ path('annulParticipate',{'id':events[i+1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Annuler</a>
+                                                {% endif %}
+                                                {% set existeInt = false %}
+                                                {% for interesse in events[1].interesses %}
+                                                    {% if interesse.id == app.user.id %}
+                                                        {% set existeInt = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if existeInt == false %}
+                                                    <a href="{{ path('clickIntrest',{'id':events[i+1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-heart"></i>&nbsp;Interesser</a>
+                                                {% else %}
+                                                    <a href="{{ path('annulIntreste',{'id':events[i+1].idEvenement}) }}" class="btn btn-d btn-circle"><i class="fa fa-close"></i>&nbsp;Désinteresser</a>
+                                                {% endif %}
+                                            </div>
+                                            <div class="post-more"><a class="more-link" href="{{ path('showEvent',{'id':events[i+1].idEvenement}) }}">Read more</a></div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="pagination font-alt"><a href="#"><i class="fa fa-angle-left"></i></a><a class="active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#"><i class="fa fa-angle-right"></i></a></div>
+                </div>
+                {{ render(controller('EvenementBundle:EvenementParticipant:search')) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

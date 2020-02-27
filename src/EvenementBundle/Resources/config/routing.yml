@@ -62,3 +62,7 @@ search_result_event:
     path:     /search/result
     defaults: { _controller: EvenementBundle:EvenementParticipant:searchResult }
 
+pie_event:
+    path:     /pie
+    defaults: { _controller: EvenementBundle:EvenementParticipant:graph }
+

@@ -1,0 +1,182 @@
+{%  extends 'Page.html.twig' %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+{% endblock head %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">Lists of Posts !</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+{% block container %}
+<div class="container">
+
+    <h2>Search A Post !!</h2>
+
+    <div class="sidebar-search">
+
+        <div class="input-group custom-search-form">
+             <input type="text" id="search" class="form-control" placeholder="Search here">
+
+        </div>
+        <!-- /input-group -->
+    </div>
+    <ul class="nav" id="side-menu">
+        <li>
+            <a href="#"> Entities<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level" id="entitiesNav">
+            </ul>
+        </li>
+    </ul><br><br><br><br>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                var minlength = 1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value===$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key === 'posts') {
+                                            if (id !== 'error') {
+                                                console.log(value[1]);
+                                                entitySelector.append('<li><b>'+value[1]+'</b><a  url="/PIDEV/web/app_dev.php/blog/detailedpost/'+id+'">'+'<img src="/uploads/post/'+value[0]+'" style="width: 50px; height: 50px"/>'+'</a></li>');
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <div class="post-container">
+
+
+
+
+
+                {% for posts in posts %}
+
+
+                                            <figure>
+
+
+                                                <a href="{{ path('detailed_post',{'id': posts.id}) }}"><img class="img-fluid" src="{{ asset('uploads/post/' ~ posts.photo) }}" alt=""></a>
+                                            </figure>
+
+                                               <center>
+                                                   <p class="rating">{{ posts.rating|rating }}</p>
+                                                   Titre: <h4><a href="{{ path('detailed_post',{'id': posts.id}) }}">{{ posts.title }}</a></h4></br>
+                                                   Description : <p class="listing-tagline">{{ posts.description|trim }}</p></br>
+
+                                                          User :  <a href="#"><i class="lni-user"></i>{{ posts.creator }}</a></br>
+
+                                                            <a href="#"><i class="lni-alarm-clock"></i>{{ posts.postdate|date() }} </a></br>
+                                                   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                       {% if(posts.creator.id== app.user.id) %}
+
+
+                                                           <!-- Button trigger modal -->
+                                                           <a href="{{ path('update_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Update</button></a>
+                                                           <a href="{{ path('delete_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-danger">Delete</button></a>
+
+
+                                                       {% else %}
+
+
+                                                       {% endif %}
+                                                   {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                                       <br>
+
+                                                   {% endif %}
+
+                                                    {% if not posts.blocke %}
+                                                        <a href="{{ path('detailed_post',{'id': posts.id}) }}"><button type="button" class="btn btn-sm btn-outline-primary">View</button></a>
+                                                        </br></br></br></br>
+                                                    </br>
+                                                   {% else %}
+                                                   <a href="#"><button type="button" class="btn btn-sm btn-outline-primary"><span class="glyphicon glyphicon-lock"></span></button></a>
+                                                   </br></br></br></br>
+                                                   {% endif %}
+                                                   {% if is_granted("ROLE_ADMIN") %}
+                                                   {% if not posts.blocke %}
+                                                       <a><button id="{{ posts.id }}" onclick=block(this.id) type="button" class="btn btn-sm btn-outline-danger">Block</button></a>
+                                                    {% else %}
+                                                        <a><button id="{{ posts.id }}" onclick=unblock(this.id) type="button" class="btn btn-sm btn-outline-danger">Unblock</button></a>
+                                                   {% endif %}
+                                                   {% endif %}
+                                                   </br></br></br></br>
+                                                   </br>
+                                              </center>
+
+                                {% endfor %}
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function block(id) {
+            console.log(id);
+            //ajouter blockage
+            $.ajax({
+                url:'/PIDEV/web/app_dev.php/blog/block/'+id,
+                type:'get',
+                success:function(result){
+                    console.log(result);
+
+                }
+            });
+        }
+        function unblock(id) {
+            console.log(id);
+            //ajouter blockage
+            $.ajax({
+                url:'/PIDEV/web/app_dev.php/blog/unblock/'+id,
+                type:'get',
+                success:function(result){
+                    console.log(result);
+
+                }
+            });
+        }
+    </script>
+
+{% endblock %}

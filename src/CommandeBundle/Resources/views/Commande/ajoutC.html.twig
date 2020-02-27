@@ -1,0 +1,30 @@
+{% extends 'front.html.twig' %}
+
+{% block container %}
+    <!-- Page Add Section Begin -->
+    <section class="page-add">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="page-breadcrumb">
+                        <h2>Checkout<span>.</span></h2>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <img src="img/add.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Add Section End -->
+    <div align="center">
+        <div>Prix : {{ prix }} DT</div>
+        {{ form (form) }}
+
+    </div>
+
+    <button>Facture</button>
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+commande_categorie:
+    resource: "@CommandeBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+commande_pdf:
+    path:     /client/convert/{id}
+    defaults: { _controller: CommandeBundle:Default:convert }
+commande_ajout_client:
+    path:     /client/ajoutCmdClient
+    defaults: { _controller: CommandeBundle:gestioncmd:ajoutCmdClient }
+commande_affiche_admin:
+    path:     /admin/afficheCmdAdmin
+    defaults: { _controller: CommandeBundle:gestioncmd:afficheCmdAdmin }
+commande_supprimer_admin:
+    path:     /client/supprimerCmdAdmin/{id}
+    defaults: { _controller: CommandeBundle:gestioncmd:supprimerCmdAdmin }
+commande_affiche_Client:
+    path:     /client/afficheCmdClient/{id}
+    defaults: { _controller: CommandeBundle:gestioncmd:afficheCmdClient }
+
+lignecommande_ajout_client:
+    path:     /client/ajoutLigneClient
+    defaults: { _controller: CommandeBundle:lignecom:ajoutLigneClient }
+lignecommande_affiche_client:
+    path:     /client/afficherLigneClient
+    defaults: { _controller: CommandeBundle:lignecom:afficherLigneClient }
+lignecommande_supprimer_client:
+    path:     /client/supprimerLigneClient/{id}
+    defaults: { _controller: CommandeBundle:lignecom:supprimerLigneClient }
+lignecommande_calcule_prix:
+    path:     /client/calculprix
+    defaults: { _controller: CommandeBundle:gestioncmd:calculprix }
+lignecommande_affiche_admin:
+    path:     /admin/afficheLigneAdmin
+    defaults: { _controller: CommandeBundle:lignecom:afficheLigneAdmin }
+
+#---------------------Produit----------------#
+produit_afficheProduits:
+    path:     /admin/afficheproduits
+    defaults: { _controller: CommandeBundle:Produit:afficheProduits }
+produit_ajouterProduits:
+    path:     /admin/ajouterProduit
+    defaults: { _controller: CommandeBundle:Produit:ajouterProduit }
+produit_supprimerProduits:
+    path:     /admin/supprimerProduit/{id}
+    defaults: { _controller: CommandeBundle:Produit:supprimerProduit }
+produit_afficheProduitsClient:
+    path:     /client/afficheproduitsClient
+    defaults: { _controller: CommandeBundle:ProduitClient:afficheProduitsClient }
+
+produit_detailsProduitClient:
+    path:     /client/detailsProduitClient/{id}
+    defaults: { _controller: CommandeBundle:ProduitClient:detailsProduitClient }
+
+
+cmd_pdf:
+    path:     /admin/cmd/{id}
+    defaults: { _controller: CommandeBundle:gestioncmd:pdf }

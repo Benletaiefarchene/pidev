@@ -1,0 +1,69 @@
+location_homepage:
+    path:     /test
+    defaults: { _controller: LocationBundle:Region:list }
+
+home_page:
+    path:     /home
+    defaults: { _controller: LocationBundle:Default:home }
+region_add:
+    path: /add/
+    defaults: { _controller: LocationBundle:Region:add }
+
+region_list:
+    path: /list
+    defaults: { _controller: LocationBundle:Region:list }
+region_update:
+        path: /update/{id}
+        defaults: { _controller: LocationBundle:Region:update }
+region_delete:
+    path: /delete/{id}
+    defaults: { _controller: LocationBundle:Region:delete }
+
+
+Magasin_add:
+        path: /addmagasin/
+        defaults: { _controller: LocationBundle:Magasin:addmagasin }
+
+Magasin_list:
+        path: /listmagasin
+        defaults: { _controller: LocationBundle:Magasin:listmagasin }
+
+Magasin_update:
+        path: /updatemagasin/{id}
+        defaults: { _controller: LocationBundle:Magasin:updatemagasin }
+
+Magasin_delete:
+        path: /deletemagasin/{id}
+        defaults: { _controller: LocationBundle:Magasin:deletemagasin }
+Location_add:
+    path: /addLocation/{id}
+    defaults: { _controller: LocationBundle:Location:addLocation }
+
+Location_list:
+    path: /listLocation/
+    defaults: { _controller: LocationBundle:Location:listLocation }
+
+Location_update:
+    path: /updateLocation/{id}
+    defaults: { _controller: LocationBundle:Location:updateLocation }
+
+Location_delete:
+    path: /deleteLocation/{id}
+    defaults: { _controller: LocationBundle:Location:deleteLocation }
+
+Location_ville:
+    path:     /map/{ville}
+    defaults: { _controller: LocationBundle:Default:ville}
+
+
+notification:
+    path: /notif
+    defaults: {_controller: LocationBundle:Default:notification}
+
+produit_list:
+    path: /consutreproduit/{id_magasin}
+    defaults: { _controller: LocationBundle:Default:listproduit }
+
+location_lecture:
+    path: /lecturelocation/{id}
+    defaults: { _controller: LocationBundle:Location:lectureLocation }

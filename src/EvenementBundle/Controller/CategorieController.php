@@ -43,6 +43,7 @@ class CategorieController extends  Controller
     {
         $em = $this->getDoctrine()->getManager();
         $cat = $em->getRepository(Categorie::class)->find($id_categorie);//recuperation de avis a supp
+
         $em->remove($cat);
         $em->flush();//supp
         return $this->redirectToRoute("catlist");

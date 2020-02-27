@@ -1,0 +1,13 @@
+{% extends 'front.html.twig' %}
+
+{% block container %}
+    <ol>
+        <li>{{ cmd.id }}</li>
+        <li>{{ cmd.userid }}</li>
+        <li>{{ cmd.adresse }}</li>
+        <li>{{ cmd.telephone }}</li>
+        <li>{{ cmd.prix }} DT</li>
+    </ol>
+
+    <a href="{{ path('cmd_pdf',{'id':cmd.id}) }}"><button>Creer pdf</button></a>
+{% endblock %}

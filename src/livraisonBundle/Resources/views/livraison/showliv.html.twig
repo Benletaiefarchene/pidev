@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block container %}
+
+    <!-- end color quick setting -->
+
+    <div class="page-bar">
+        <div class="page-title-breadcrumb">
+
+            <ol class="breadcrumb page-breadcrumb pull-right">
+                <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                       href="http://radixtouch.in/templates/admin/smart/source/light/index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                </li>
+                <li><a class="parent-item" href="#">Holiday</a>&nbsp;<i class="fa fa-angle-right"></i>
+                </li>
+                <li class="active">Holiday List</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="card-box">
+                <div class="card-head">
+                    <header>Liste Livraison</header>
+                    <button id="sdntmenu" class="mdl-button mdl-js-button mdl-button--icon pull-right"
+                            data-upgraded=",MaterialButton">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                        data-mdl-for="sdntmenu">
+                        <li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+                        </li>
+                        <li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+                        </li>
+                        <li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+                            here</li>
+                    </ul>
+                </div>
+                <div class="card-body ">
+                    <div class="table-scrollable">
+                        <table
+                                class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                                id="example4">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>reference </th>
+                                <th> date </th>
+                                <th> lieux</th>
+                                <th> transporteur </th>
+                                <th> état </th>
+                                <th> Action </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for t in livraison %}
+                                    <tr class="odd gradeX">
+                                        <td>{{ t.id }}</td>
+                                        <td>{{ t.reference }}</td>
+                                        <td class="left">{{ t.datelivraison|date }}</td>
+                                        <td class="left">{{ t.lieu }}</td>
+                                        <td> </a>
+                                            <a  href="{{ path ('affecterTransporteur',{'id':t.id}) }}">affecter livreur</a> </td>
+                                        <td class="left">{{t.etatlivraison}}</td>
+
+                                        <td>
+                                            <a href="http://radixtouch.in/templates/admin/smart/source/light/edit_professor.html" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a  href="{{ path ('SupprimerLivraison',{'id':t.id}) }}">
+                                                <button class="btn btn-danger btn-xs">
+                                                    <i class="fa fa-trash-o "></i>
+                                                </button>
+                                        </td>
+                                    </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- end page content -->
+{% endblock %}
+

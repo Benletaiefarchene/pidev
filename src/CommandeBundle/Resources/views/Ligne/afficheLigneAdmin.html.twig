@@ -1,0 +1,61 @@
+{% extends 'back.html.twig' %}
+
+{% block container %}
+
+    <div class="orders">
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Orders </h4>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table ">
+                                <thead>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th class="avatar">Avatar</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for l in ligne %}
+                                <tr>
+                                    <td class="serial">1.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle" src="{{ asset('produit/uploads/images/' ~ l.produit.image ) }}" alt=""></a>
+                                        </div>
+                                    </td>
+                                    <td> {{ l.id }} </td>
+                                    <td>  <span class="name">{{ l.userid }}</span> </td>
+                                    <td> <span class="product">{{ l.produit.libelle }}</span> </td>
+                                    <td><span class="count">{{ l.quantite }}</span></td>
+                                    {% if l.etat == 1 %}
+                                    <td>
+                                        <span class="badge badge-complete">Validate</span>
+                                    </td>
+                                    {% else %}
+                                        <td>
+                                            <span class="badge badge-pending">Not validate</span>
+                                        </td>
+                                        {% endif %}
+                                </tr>
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div> <!-- /.table-stats -->
+                    </div>
+                </div> <!-- /.card -->
+            </div>  <!-- /.col-lg-8 -->
+
+
+{% endblock %}

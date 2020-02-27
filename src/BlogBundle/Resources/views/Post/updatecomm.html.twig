@@ -1,0 +1,24 @@
+{% extends 'Page.html.twig' %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">Update Post</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
+
+{% block container  %}
+
+
+    <form method= "POST"><br/><br/><br/>
+        comment:<input type="text" name ="content" value="{{ transp.content }}"><br/>
+
+        <input type="submit"value="enregister"><br/><br/><br/>
+
+    </form>
+{% endblock %}

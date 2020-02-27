@@ -3,6 +3,9 @@
 namespace livraisonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\FormTypeInterface;
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * transporteur
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="transporteur")
  * @ORM\Entity(repositoryClass="livraisonBundle\Repository\transporteurRepository")
  */
-class transporteur
+class transporteur extends BaseUser
 {
     /**
      * @var int
@@ -19,40 +22,50 @@ class transporteur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var int
      *
      * @ORM\Column(name="tel", type="integer")
      */
-    private $tel;
+    protected $tel;
+
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="capacite", type="integer")
      */
-    private $email;
+    protected $capacite;
+
+
 
     /**
      * @ORM\OneToMany(targetEntity="livraisonBundle\Entity\livraison",mappedBy="transporteur")
      */
-    private $livraison;
+    protected $livraison;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="dispo", type="boolean")
+     */
+    protected $dispo;
 
     /**
      * Get id
@@ -136,29 +149,8 @@ class transporteur
         return $this->tel;
     }
 
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return transporteur
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
 
-        return $this;
-    }
 
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
     /**
      * Constructor
      */
@@ -170,11 +162,11 @@ class transporteur
     /**
      * Add livraison
      *
-     * @param \veloBundle\Entity\livraison $livraison
+     * @param \livraisonBundle\Entity\livraison $livraison
      *
      * @return transporteur
      */
-    public function addLivraison(\veloBundle\Entity\livraison $livraison)
+    public function addLivraison(\livraisonBundle\Entity\livraison $livraison)
     {
         $this->livraison[] = $livraison;
 
@@ -184,9 +176,9 @@ class transporteur
     /**
      * Remove livraison
      *
-     * @param \veloBundle\Entity\livraison $livraison
+     * @param \livraisonBundle\Entity\livraison $livraison
      */
-    public function removeLivraison(\veloBundle\Entity\livraison $livraison)
+    public function removeLivraison(\livraisonBundle\Entity\livraison $livraison)
     {
         $this->livraison->removeElement($livraison);
     }
@@ -200,4 +192,38 @@ class transporteur
     {
         return $this->livraison;
     }
+
+    /**
+     * @return bool
+     */
+    public function isDispo()
+    {
+        return $this->dispo;
+    }
+
+    /**
+     * @param bool $dispo
+     */
+    public function setDispo($dispo)
+    {
+        $this->dispo = $dispo;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCapacite()
+    {
+        return $this->capacite;
+    }
+
+    /**
+     * @param int $capacite
+     */
+    public function setCapacite($capacite)
+    {
+        $this->capacite = $capacite;
+    }
+
+
 }

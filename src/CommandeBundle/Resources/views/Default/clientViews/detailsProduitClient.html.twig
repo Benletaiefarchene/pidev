@@ -1,0 +1,40 @@
+{% extends 'front.html.twig' %}
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-slider owl-carousel">
+                    <div class="product-img">
+                        <figure>
+                            <img src="{{ asset('produit/uploads/images/' ~ produit.image ) }}" alt="">
+                            <div class="p-status">new</div>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="product-content">
+                    <h2>{{produit.libelle}}</h2>
+                    <div class="pc-meta">
+                        <h5>{{ produit.prix }} TND </h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <img width="200" height="200" src="{{ produit.qrcode}}" /><
+                    <ul class="tags">
+                        <li><span>Category :</span> {{ produit.categorie.libelle }}</li>
+                    </ul>
+                    <div class="product-quantity">
+                        {{ form (form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

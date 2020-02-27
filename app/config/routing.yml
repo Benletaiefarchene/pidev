@@ -1,10 +1,31 @@
 evenement:
     resource: "@EvenementBundle/Resources/config/routing.yml"
     prefix:   /event
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
 
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /
+livraison:
+    resource: "@livraisonBundle/Resources/config/routing.yml"
+    prefix:   /liv
 
+location:
+    resource: "@LocationBundle/Resources/config/routing.yml"
+    prefix:   /Loc
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+index_page:
+    path: /home
+    defaults: {_controller: livraisonBundle:Default:index}
+map:
+    path: /liv/map
+    defaults: {_controller: livraisonBundle:Default:map}
+maploc:
+    path: /Loc/map
+    defaults: {_controller: LocationBundle:Default:map}

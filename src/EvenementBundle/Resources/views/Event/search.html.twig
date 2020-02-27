@@ -1,0 +1,38 @@
+<form role="form" method="post" action="{{ url('search_result_event') }}">
+    <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
+        <div class="widget">
+            <h5 class="widget-title font-alt">Nom</h5>
+            <div class="search-box">
+                <input class="form-control" name="nom" type="text" placeholder="Nom..."/>
+            </div>
+        </div>
+        <div class="widget">
+            <h5 class="widget-title font-alt">Categorie</h5>
+            <select id="categories" class="form-control select2" name="categories[]" multiple="multiple" placeholder="Categorie...">
+                {% for categorie in categories %}
+                    <option value={{ categorie.libelle }}>{{ categorie.libelle }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="widget">
+            <h5 class="widget-title font-alt">Type</h5>
+            <div class="search-box">
+                <input class="form-control" name="type" type="text" placeholder="Type..."/>
+            </div>
+        </div>
+        <div class="widget">
+            <h5 class="widget-title font-alt">Lieu</h5>
+            <div class="search-box">
+                <input class="form-control" name="lieu" type="text" placeholder="Lieu..."/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-d btn-circle" style="width: 262.5px">Search</button>
+    </div>
+</form>
+<script src="{{ asset ('back/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset ('back/js/jquery-ui.min.js')}}"></script>
+<script>
+    jQuery(document).ready(function() {
+        $('#categories').select2();
+    });
+</script>

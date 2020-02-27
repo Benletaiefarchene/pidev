@@ -8,7 +8,7 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = [
+        $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -18,10 +18,18 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new livraisonBundle\livraisonBundle(),
             new EvenementBundle\EvenementBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
-        ];
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new BlogBundle\BlogBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new LocationBundle\LocationBundle(),
+            new SBC\NotificationsBundle\NotificationsBundle(),
+            new livraisonBundle\livraisonBundle(),
+            new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new CommandeBundle\CommandeBundle(),
+
+        );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();

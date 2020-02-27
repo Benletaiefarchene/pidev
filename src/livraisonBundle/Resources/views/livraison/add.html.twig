@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <h1>Livraison creation</h1>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+
+    {{ form_widget(form) }}
+
+    <button type="submit"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-5 m-r-20 btn-pink">
+            Create </button>
+
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('ConsulterLivraison') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

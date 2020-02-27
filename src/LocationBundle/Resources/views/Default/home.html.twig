@@ -1,0 +1,9 @@
+
+{% if is_granted('ROLE_Responsable_vente') %}
+    {% set extendedTemplate = 'base.html.twig' %}
+{% elseif is_granted('ROLE_USER') %}
+    {% set extendedTemplate =  'front.html.twig' %}
+
+{% endif %}
+{% extends extendedTemplate %}
+

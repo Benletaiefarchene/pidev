@@ -6,6 +6,8 @@ namespace EvenementBundle\Controller;
 
 use BaseBundle\Entity\ListP;
 use BaseBundle\Entity\Utilisateur;
+use ClassesWithParents\E;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use EvenementBundle\Entity\Categorie;
 use EvenementBundle\Entity\Evenement;
 use AppBundle\Entity\User;
@@ -153,21 +155,19 @@ class EvenementParticipantController extends Controller
         {
             foreach($evenementsNom as $evenementNom)
             {
-                $evenementsNomAndType[] = $evenementNom;
-            }
-            foreach($evenementsType as $evenementType)
-            {
                 $exist=false;
-                foreach ($evenementsNomAndType as $evenementNomAndType)
+
+                foreach($evenementsType as $evenementType)
                 {
-                    if($evenementNomAndType->getId()   ==  $evenementType->getId())
+                    if($evenementNom->getIdEvenement()   ==  $evenementType->getIdEvenement())
                     {
                         $exist=true;
                     }
                 }
-                if($exist==false)
+
+                if($exist==true)
                 {
-                    $evenementsNomAndType[] = $evenementType;
+                    $evenementsNomAndType[]=$evenementNom;
                 }
             }
         }
@@ -183,21 +183,17 @@ class EvenementParticipantController extends Controller
         {
             foreach($evenementsCategorie as $evenementCategorie)
             {
-                $evenementsCategorieAndLieu[] = $evenementCategorie;
-            }
-            foreach($evenementsLieu as $evenementLieu)
-            {
                 $exist=false;
-                foreach ($evenementsCategorieAndLieu as $evenementCategorieAndLieu)
+                foreach($evenementsLieu as $evenementLieu)
                 {
-                    if($evenementCategorieAndLieu->getId()   ==  $evenementLieu->getId())
+                    if($evenementCategorie->getIdEvenement()   ==  $evenementLieu->getIdEvenement())
                     {
                         $exist=true;
                     }
                 }
-                if($exist==false)
+                if($exist==true)
                 {
-                    $evenementCategorieAndLieu[] = $evenementLieu;
+                    $evenementCategorieAndLieu[] = $evenementCategorie;
                 }
             }
         }
@@ -211,29 +207,22 @@ class EvenementParticipantController extends Controller
         }
         elseif($evenementsCategorieAndLieu !=  null AND $evenementsNomAndType !=  null)
         {
-            foreach($evenementsCategorieAndLieu as $evenementCategorieAndLieu)
-            {
-                $evenementsResults[] = $evenementCategorieAndLieu;
-            }
-            foreach($evenementsResults as $evenementResults)
+            foreach($evenementsNomAndType as $evenementNomAndType)
             {
                 $exist=false;
                 foreach ($evenementsCategorieAndLieu as $evenementCategorieAndLieu)
                 {
-                    if($evenementResults->getId()   ==  $evenementNomAndType->getId())
+                    if($evenementNomAndType->getIdEvenement()   ==  $evenementCategorieAndLieu->getIdEvenement())
                     {
                         $exist=true;
                     }
                 }
-                if($exist==false)
+                if($exist==true)
                 {
                     $evenementsResults[] = $evenementNomAndType;
                 }
             }
-        }
-        if($evenementsResults    ==  null)
-        {
-            $evenementsResults   =   $evenements;
+
         }
         return $this->render('@Evenement/Event/search_result.html.twig',[
             'events'        =>  $evenementsResults,
@@ -242,5 +231,25 @@ class EvenementParticipantController extends Controller
             'lieu'          =>  $lieuSearch,
             'categories'    =>  $categorieSearch,
         ]);
+    }
+    public function graphAction()
+    {
+        $pieChart = new PieChart();
+        $evenements = $this->getDoctrine()->getRepository(Evenement::class)->findAll();
+        $data[]=['Nom du evenement','nombre participants'];
+        foreach ($evenements as $evenement)
+        {
+            $data[]=[$evenement->getNomEvenement(),sizeof($evenement->getParticipants())];
+        }
+        $pieChart->getData()->setArrayToDataTable($data);
+        $pieChart->getOptions()->setTitle('Nombre des participants');
+        $pieChart->getOptions()->setHeight(500);
+        $pieChart->getOptions()->setWidth(900);
+        $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setColor('#009900');
+        $pieChart->getOptions()->getTitleTextStyle()->setItalic(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
+        return $this->render('@Evenement/Event/piechart.html.twig', array('piechart' => $pieChart));
     }
 }

@@ -1,0 +1,61 @@
+{% extends 'front.html.twig' %}
+
+{% block container %}
+    <section class="product-page">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-slider owl-carousel">
+                        <div class="product-img">
+                            <figure>
+                                <img src="{{ asset('client/img/product/aaaa.png') }}" alt="">
+                                <div class="p-status">new</div>
+                            </figure>
+                        </div>
+                        <div class="product-img">
+                            <figure>
+                                <img src="{{ asset('client/img/product/aaaa.png') }}" alt="">
+                                <div class="p-status">new</div>
+                            </figure>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-content">
+                        <h2>Decathlon</h2>
+                        <div class="pc-meta">
+                            <h5>300 DT</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas accumsan lacus vel facilisis.</p>
+                        <ul class="tags">
+                            <li><span>Category :</span> Bike</li>
+                            <li><span>Tags :</span> man, bike, bicycle</li>
+                        </ul>
+                        <div class="product-quantity">
+                            {{ form (form) }}
+                        </div>
+
+                        <ul class="p-info">
+                            <li>Product Information</li>
+                            <li>Reviews</li>
+                            <li>Product Care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

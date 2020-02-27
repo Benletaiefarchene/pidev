@@ -1,0 +1,56 @@
+home_page:
+    path:     /home
+    defaults: { _controller: BlogBundle:Blog:home }
+addPost:
+    path:     /addpost
+    defaults: { _controller: BlogBundle:Blog:add }
+
+list_post:
+    path:     /postslist
+    defaults: { _controller: BlogBundle:Blog:listpost }
+
+update_post:
+    path:     /updatepost/{id}
+    defaults: { _controller: BlogBundle:Blog:updatet }
+
+update_comm:
+    path:     /updatecomm/{id}
+    defaults: { _controller: BlogBundle:Blog:updatetcomm }
+
+
+delete_post:
+    path:     /deletepost/{id}
+    defaults: { _controller: BlogBundle:Blog:deletepost }
+
+
+detailed_post:
+    path:     /detailedpost/{id}
+    defaults: { _controller: BlogBundle:Blog:showdetailed }
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: BlogBundle:Blog:search }
+
+
+add_comment:
+    path:     /addcomment
+    defaults: { _controller: BlogBundle:Blog:addComment }
+delete_comment:
+    path:     /deletecomment/{id}
+    defaults: { _controller: BlogBundle:Blog:deleteComment }
+
+comment_like:
+    path: /like/{id}
+    defaults: { _controller: BlogBundle:Blog:like }
+
+comment_dislike:
+    path: /dislike/{id}
+    defaults: { _controller: BlogBundle:Blog:dislike }
+
+block_post:
+    path: /block/{id}
+    defaults: { _controller: BlogBundle:Blog:block }
+
+unblock_post:
+    path: /unblock/{id}
+    defaults: { _controller: BlogBundle:Blog:unblock }

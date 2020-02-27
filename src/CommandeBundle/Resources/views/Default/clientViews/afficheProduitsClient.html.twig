@@ -1,0 +1,39 @@
+{% extends 'front.html.twig' %}
+
+{% block container %}
+    <!-- Page Add Section Begin -->
+    <section class="page-add">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="page-breadcrumb">
+                        <h2>Our Products<span>.</span></h2>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <img src="img/add.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page Add Section End -->
+    <div class="container">
+        <div class="row">
+            {% for produit in produits %}
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="{{ path('produit_detailsProduitClient',{'id':produit.id}) }}"><img src="{{ asset('produit/uploads/images/' ~ produit.image ) }}" alt=""></a>
+                            <div class="p-status">new</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>{{produit.libelle}}</h6>
+                            <p>{{produit.prix}} TND</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
