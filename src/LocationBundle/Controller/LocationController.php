@@ -29,7 +29,7 @@ class LocationController extends Controller
 
 
         $form =$form->handleRequest($request);
-        if($form->isValid()){
+        if($form->isValid()&& $reg->getEndL()>$reg->getStartL()){
             $em=$this->getDoctrine()->getManager();
             $reg->setIdClient($user);
             $reg->setIdProduit($produit);

@@ -3,7 +3,7 @@
 
 namespace LocationBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Region
  *
@@ -26,6 +26,7 @@ class Region
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $nom;
 

@@ -6,7 +6,7 @@ use AppBundle\Entity\Notification;
 use Doctrine\ORM\Mapping as ORM;
 use Mgilet\NotificationBundle\NotifiableInterface;
 use SBC\NotificationsBundle\Builder\NotificationBuilder;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * MagasinController
  *
@@ -52,6 +52,7 @@ class Magasin implements \SBC\NotificationsBundle\Model\NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="name_M", type="string", length=255)
+     *  @Assert\NotBlank()
      */
     private $nameM;
 
@@ -59,6 +60,7 @@ class Magasin implements \SBC\NotificationsBundle\Model\NotifiableInterface
      * @var string
      *
      * @ORM\Column(name="Adresse", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $adresse;
 
@@ -66,6 +68,7 @@ class Magasin implements \SBC\NotificationsBundle\Model\NotifiableInterface
      * @var int
      *
      * @ORM\Column(name="tel", type="integer")
+     *  @Assert\NotBlank()
      */
     private $tel;
 

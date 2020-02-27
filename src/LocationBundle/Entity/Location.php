@@ -74,6 +74,7 @@ class Location implements \SBC\NotificationsBundle\Model\NotifiableInterface
      * @var \DateTime
      *
      * @ORM\Column(name="start_l", type="date")
+     * @Assert\GreaterThanOrEqual("today")
      */
     private $start_l;
 
@@ -104,6 +105,7 @@ class Location implements \SBC\NotificationsBundle\Model\NotifiableInterface
      * @var \DateTime
      *
      * @ORM\Column(name="end_l", type="date")
+
      */
     private $end_l;
 

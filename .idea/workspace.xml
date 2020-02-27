@@ -2,37 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8adc368-c581-4883-bbab-2a564b4b92f5" name="Default Changelist" comment="20/02/2020">
-      <change afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/a.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consulterproduit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/loclist.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/map.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/map/jquery.vmap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/map/jquery.vmap.tunisia.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/map/jqvmap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/map/jqvmap.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/Page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/front.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LocationBundle/Controller/LocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Controller/LocationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Controller/MagasinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Controller/MagasinController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LocationBundle/Entity/Location.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Entity/Location.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LocationBundle/Entity/Magasin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Entity/Magasin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Entity/Produit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LocationBundle/Entity/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Entity/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Form/LocationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Form/LocationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Repository/LocationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Repository/LocationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Repository/ProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/addlocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/addlocation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consulterlocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consulterlocation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consultermagasin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consultermagasin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consulterregion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/consulterregion.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/locationlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/locationlist.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/magasinlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/LocationBundle/Resources/views/Default/magasinlist.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +167,7 @@
       <workItem from="1581674260299" duration="262000" />
       <workItem from="1581675224986" duration="2025000" />
       <workItem from="1582048355623" duration="123182000" />
-      <workItem from="1582749156047" duration="21505000" />
+      <workItem from="1582749156047" duration="24742000" />
     </task>
     <task id="LOCAL-00001" summary="20/02/2020">
       <created>1582234233955</created>
