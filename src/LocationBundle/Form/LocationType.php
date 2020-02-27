@@ -20,18 +20,40 @@ class LocationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //$years = range(date('Y'), date('Y') + 1);
+       // $years = range(date('Y'), date('Y') + 1);
         $builder
-            ->add('start_l')
-            ->add('end_l')
+          //  ->add('start_l')
+
+         ->add('end_l', DateTimeType::class, [
+        'placeholder' => [
+            'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+            'hour' => 'Hour',
+        ]
+    ])
+            ->add('start_l', DateTimeType::class, [
+         'placeholder' => [
+        'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+        'hour' => 'Hour',
+    ]
+]);
+       // ->add('start_l', DateTimeType::class, [
+       // 'years'        => $years,
+       // 'with_seconds' => false,
+    //])
+       // ->add('end_l', DateTimeType::class, [
+           // 'years'        => $years,
+            //'with_seconds' => false,
+       // ])
+
+       // ->add('Montant');
             //->add('id_Produit',EntityType::class,['class'=>Produit::class,'choice_label'=>'refProduit','multiple'=>false]);
            // ->add('id_reg',EntityType::class,['class'=>Region::class,'choice_label'=>'nom','multiple'=>false])
-            ->add('id_Produit', EntityType::class, [
-                'class' => Produit::class,
-                'choice_label' => function (Produit $id_Produit) {
-                    return  $id_Produit->getIdMagasin()->getNameM().' '.$id_Produit->getIdMagasin()-> getIdRegion()->getNom().' '. $id_Produit->getRefProduit();
-                },
-           ]);
+           // ->add('id_Produit', EntityType::class, [
+               // 'class' => Produit::class,
+                //'choice_label' => function (Produit $id_Produit) {
+                 //   return  $id_Produit->getIdMagasin()->getNameM().' '.$id_Produit->getIdMagasin()-> getIdRegion()->getNom().' '. $id_Produit->getRefProduit();
+               // },
+          // ]);
           //  ->add('id_client',EntityType::class,['class'=>User::class,'choice_label'=>'id','multiple'=>false]);
     }
     /**

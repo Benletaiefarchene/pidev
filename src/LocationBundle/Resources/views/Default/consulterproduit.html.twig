@@ -1,5 +1,17 @@
-{% extends "base.html.twig" %}
+{% extends "Page.html.twig" %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">liste produits</h2>
 
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}
 {% block container  %}
     <div class="row">
         <div class="col-md-12">
@@ -19,7 +31,7 @@
                             <div class="col-md-12">
                                 <div class="card card-box">
                                     <div class="card-head">
-                                        <header> Liste des locations </header>
+                                        <header> Liste des regions </header>
                                         <div class="tools">
                                             <a class="fa fa-repeat btn-color box-refresh"
                                                href="javascript:;"></a>
@@ -71,10 +83,10 @@
                                                 <thead>
                                                 <tr>
 
-                                                    <th> start time </th>
-                                                    <th> end time </th>
-                                                    <th>  Reference produit </th>
-
+                                                    <th> reference produit </th>
+                                                    <th> désignation </th>
+                                                    <th> description </th>
+                                                    <th> prix par heure </th>
 
                                                 </tr>
                                                 </thead>
@@ -83,22 +95,19 @@
 
                                                     {% for infos in list %}
                                                 <tr>
-                                                    <td>{{ infos.startl|date }}</td>
-                                                    <td>{{ infos.endl|date }}</td>
-                                                    <td>{{ infos.idProduit.refProduit }}</td>
-                                                    <td>{{ infos.montant }}</td>
+
+                                                    <td>{{ infos.refProduit }}</td>
+                                                    <td>{{ infos.designation }}</td>
+                                                    <td>{{ infos.description }}</td>
+                                                    <td>{{ infos.prix}}</td>
 
                                                     <td>
-                                                        <a href="{{ path("Location_update",{"id":infos.id})}}"
+                                                        <a href="{{ path("Location_add",{"id":infos.id})}}"
                                                            class="btn btn-primary btn-xs">
                                                             <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                        <a href="{{ path("Location_delete",{"id":infos.id})}}"
-                                                           class="btn btn-primary btn-xs">
-                                                            <button class="btn btn-danger btn-xs">
+
 
                                                     </td>
-
 
 
                                                 </tr>

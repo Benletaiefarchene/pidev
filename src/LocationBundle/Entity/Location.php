@@ -2,16 +2,19 @@
 
 namespace LocationBundle\Entity;
 
+use AppBundle\Entity\Notification;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
 /**
  * Location
  *
  * @ORM\Table(name="location")
  * @ORM\Entity(repositoryClass="LocationBundle\Repository\LocationRepository")
  */
-class Location
+class Location implements \SBC\NotificationsBundle\Model\NotifiableInterface
 {
+
     /**
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -73,6 +76,29 @@ class Location
      * @ORM\Column(name="start_l", type="date")
      */
     private $start_l;
+
+    /**
+     * @return mixed
+     */
+    public function getMontant()
+    {
+        return $this->montant;
+    }
+
+    /**
+     * @param mixed $montant
+     */
+    public function setMontant($montant)
+    {
+        $this->montant = $montant;
+    }
+
+    /**
+     *
+     * @ORM\Column(name="montant", type="float")
+     */
+    private $montant;
+
 
     /**
      * @var \DateTime
@@ -139,5 +165,37 @@ class Location
     }
 
 
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('new location')
+            ->setDescription($this->getIdProduit()->getRefProduit())
+            ->setRoute('Location_list')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->getIdLoc()))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
+    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('new location')
+            ->setDescription($this->getIdProduit()->getRefProduit())
+            ->setRoute('Location_list')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->getIdLoc()))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
+    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+        return $builder;
+    }
 }
 

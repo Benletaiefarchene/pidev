@@ -10,4 +10,5 @@ namespace LocationBundle\Repository;
  */
 class LocationRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

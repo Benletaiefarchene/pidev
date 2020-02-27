@@ -1,34 +1,5 @@
-{% extends "Page.html.twig" %}
-{% block body %}
-    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <h2 class="module-title font-alt">liste magasin</h2>
+{% extends "base.html.twig" %}
 
-                </div>
-            </div>
-        </div>
-    </section>
-    {{ notifications_assets() }}
-    <script>
-        /**
-         * After calling notifications_assets() "pusher" is now available
-         * and you can use it this way
-         */
-
-            // select the channel you want to listen to
-        var channel = pusher.subscribe("notifications");// notifications channel
-        channel.bind("my-event", function(data) {
-            console.log('from notifications channel', data);
-        });
-
-        var channel = pusher.subscribe("messages");// messages channel
-        channel.bind("my-event", function(data) {
-            console.log('from messages channel', data);
-        });
-    </script>
-{% endblock body %}
 {% block container  %}
     <div class="row">
         <div class="col-md-12">
@@ -112,6 +83,7 @@
 
                                                     {% for infos in list %}
                                                 <tr>
+
                                                     <td>{{ infos.nameM }}</td>
                                                     <td>{{ infos.adresse }}</td>
                                                     <td>{{ infos.tel }}</td>
@@ -122,6 +94,7 @@
                    class="btn btn-primary btn-xs">
                                                         <i class="fa fa-pencil"></i>
                                                         </a>
+
                                                         <a href="{{ path("Magasin_delete",{"id":infos.id})}}"
                                                            class="btn btn-primary btn-xs">
                                                             <button class="btn btn-danger btn-xs">

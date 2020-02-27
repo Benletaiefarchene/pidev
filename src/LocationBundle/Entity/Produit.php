@@ -102,11 +102,48 @@ class Produit
     private $image;
 
     /**
-     * @var int
+     * @return mixed
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @param mixed $statut
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrixHeure()
+    {
+        return $this->prix_heure;
+    }
+
+    /**
+     * @param mixed $prix_heure
+     */
+    public function setPrixHeure($prix_heure)
+    {
+        $this->prix_heure = $prix_heure;
+    }
+
+    /**
      *
-     * @ORM\Column(name="Statut", type="integer")
+     * @ORM\Column(name="Statut", type="boolean")
      */
     private $statut;
+
+    /**
+     *
+     * @ORM\Column(name="prix_heure", type="float")
+     */
+    private $prix_heure;
 
 
     /**
@@ -239,28 +276,6 @@ class Produit
         return $this->image;
     }
 
-    /**
-     * Set statut
-     *
-     * @param integer $statut
-     *
-     * @return Produit
-     */
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
 
-        return $this;
-    }
-
-    /**
-     * Get statut
-     *
-     * @return int
-     */
-    public function getStatut()
-    {
-        return $this->statut;
-    }
 }
 

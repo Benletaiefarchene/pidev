@@ -1,4 +1,17 @@
-{% extends "base.html.twig" %}
+{% extends "Page.html.twig" %}
+{% block body %}
+    <section class="module bg-dark-60 about-page-header" data-background="{{ asset('front/images/shop/b1.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2 class="module-title font-alt">liste magasin</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock body %}
 
 {% block container  %}
     <div class="row">
@@ -74,36 +87,26 @@
                                                     <th> start time </th>
                                                     <th> end time </th>
                                                     <th>  Reference produit </th>
-
+                                                     <th>  Montant  </th>
 
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr class="odd gradeX">
 
-                                                    {% for infos in list %}
+
                                                 <tr>
-                                                    <td>{{ infos.startl|date }}</td>
-                                                    <td>{{ infos.endl|date }}</td>
-                                                    <td>{{ infos.idProduit.refProduit }}</td>
-                                                    <td>{{ infos.montant }}</td>
+                                                    <td>{{ list.startl|date }}</td>
+                                                    <td>{{ list.endl|date }}</td>
+                                                    <td>{{ list.idProduit.refProduit }}</td>
+                                                    <td>{{ list.montant }}</td>
 
-                                                    <td>
-                                                        <a href="{{ path("Location_update",{"id":infos.id})}}"
-                                                           class="btn btn-primary btn-xs">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </a>
-                                                        <a href="{{ path("Location_delete",{"id":infos.id})}}"
-                                                           class="btn btn-primary btn-xs">
-                                                            <button class="btn btn-danger btn-xs">
-
-                                                    </td>
 
 
 
                                                 </tr>
                                                 </tbody>
-                                                {% endfor %}
+
                                             </table>
 
                                         </div>

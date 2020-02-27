@@ -2,7 +2,10 @@
 
 namespace LocationBundle\Entity;
 
+use AppBundle\Entity\Notification;
 use Doctrine\ORM\Mapping as ORM;
+use Mgilet\NotificationBundle\NotifiableInterface;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
 
 /**
  * MagasinController
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="magasin")
  * @ORM\Entity(repositoryClass="LocationBundle\Repository\MagasinRepository")
  */
-class Magasin
+class Magasin implements \SBC\NotificationsBundle\Model\NotifiableInterface
 {
     /**
      * @var int
@@ -147,6 +150,39 @@ class Magasin
     public function getTel()
     {
         return $this->tel;
+    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('update magasin')
+            ->setDescription($this->getNameM())
+            ->setRoute('Magasin_list')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->getId()))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
+    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+        return $builder;
+    }
+
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('New magasin')
+            ->setDescription($this->getNameM())
+            ->setRoute('Magasin_list')// I suppose you have a show route for your entity
+            ->setParameters(array('id' => $this->getId()))
+        ;
+        $builder->addNotification($notification);
+
+        return $builder;
     }
 }
 

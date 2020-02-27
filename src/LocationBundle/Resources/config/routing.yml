@@ -36,11 +36,11 @@ Magasin_delete:
         path: /deletemagasin/{id}
         defaults: { _controller: LocationBundle:Magasin:deletemagasin }
 Location_add:
-    path: /addLocation/
+    path: /addLocation/{id}
     defaults: { _controller: LocationBundle:Location:addLocation }
 
 Location_list:
-    path: /listLocation
+    path: /listLocation/
     defaults: { _controller: LocationBundle:Location:listLocation }
 
 Location_update:
@@ -59,3 +59,14 @@ map:
     path: /map
     defaults: {_controller: LocationBundle:Default:map}
 
+notification:
+    path: /notif
+    defaults: {_controller: LocationBundle:Default:notification}
+
+produit_list:
+    path: /consutreproduit/{id_magasin}
+    defaults: { _controller: LocationBundle:Default:listproduit }
+
+location_lecture:
+    path: /lecturelocation/{id}
+    defaults: { _controller: LocationBundle:Location:lectureLocation }

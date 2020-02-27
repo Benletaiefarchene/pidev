@@ -16,7 +16,7 @@ class Region
      * @var int
      *
      * @ORM\Column(name="id_reg", type="integer")
-     * @ORM\Id()
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id_reg;
